@@ -1,0 +1,701 @@
+{
+  "ok": true,
+  "outputDir": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c",
+  "frames": [
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-01-at-0.3s.png",
+      "time": 0.3,
+      "role": "beat",
+      "label": "opening"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-02-at-2s.png",
+      "time": 2,
+      "role": "beat",
+      "label": "opening mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-03-at-4.3s.png",
+      "time": 4.3,
+      "role": "beat",
+      "label": "brand"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-04-at-5s.png",
+      "time": 5,
+      "role": "beat",
+      "label": "brand mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-05-at-6.3s.png",
+      "time": 6.3,
+      "role": "beat",
+      "label": "actions"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-06-at-9s.png",
+      "time": 9,
+      "role": "beat",
+      "label": "actions mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-07-at-12.3s.png",
+      "time": 12.3,
+      "role": "beat",
+      "label": "product"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-08-at-15s.png",
+      "time": 15,
+      "role": "beat",
+      "label": "product mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-09-at-18.3s.png",
+      "time": 18.3,
+      "role": "beat",
+      "label": "proof"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-10-at-20s.png",
+      "time": 20,
+      "role": "beat",
+      "label": "proof mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-11-at-22.3s.png",
+      "time": 22.3,
+      "role": "beat",
+      "label": "decisions"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-12-at-24s.png",
+      "time": 24,
+      "role": "beat",
+      "label": "decisions mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-13-at-26.3s.png",
+      "time": 26.3,
+      "role": "beat",
+      "label": "mascot"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-14-at-28.5s.png",
+      "time": 28.5,
+      "role": "beat",
+      "label": "mascot mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-15-at-31.3s.png",
+      "time": 31.3,
+      "role": "beat",
+      "label": "evals"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-16-at-32.75s.png",
+      "time": 32.75,
+      "role": "beat",
+      "label": "evals mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-17-at-34.8s.png",
+      "time": 34.8,
+      "role": "beat",
+      "label": "end"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-18-at-36.4s.png",
+      "time": 36.4,
+      "role": "beat",
+      "label": "end mid"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-1-at-3.8s.png",
+      "time": 3.8,
+      "role": "seam",
+      "label": "cut -0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-2-at-3.9s.png",
+      "time": 3.9,
+      "role": "seam",
+      "label": "-0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-3-at-4s.png",
+      "time": 4,
+      "role": "seam",
+      "label": "cut opening -> brand"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-4-at-4.1s.png",
+      "time": 4.1,
+      "role": "seam",
+      "label": "+0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-5-at-4.2s.png",
+      "time": 4.2,
+      "role": "seam",
+      "label": "+0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-1-at-5.8s.png",
+      "time": 5.8,
+      "role": "seam",
+      "label": "cut -0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-2-at-5.9s.png",
+      "time": 5.9,
+      "role": "seam",
+      "label": "-0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-3-at-6s.png",
+      "time": 6,
+      "role": "seam",
+      "label": "cut brand -> actions"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-4-at-6.1s.png",
+      "time": 6.1,
+      "role": "seam",
+      "label": "+0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-5-at-6.2s.png",
+      "time": 6.2,
+      "role": "seam",
+      "label": "+0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-1-at-11.8s.png",
+      "time": 11.8,
+      "role": "seam",
+      "label": "cut -0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-2-at-11.9s.png",
+      "time": 11.9,
+      "role": "seam",
+      "label": "-0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-3-at-12s.png",
+      "time": 12,
+      "role": "seam",
+      "label": "cut actions -> product"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-4-at-12.1s.png",
+      "time": 12.1,
+      "role": "seam",
+      "label": "+0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-5-at-12.2s.png",
+      "time": 12.2,
+      "role": "seam",
+      "label": "+0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-1-at-17.8s.png",
+      "time": 17.8,
+      "role": "seam",
+      "label": "cut -0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-2-at-17.9s.png",
+      "time": 17.9,
+      "role": "seam",
+      "label": "-0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-3-at-18s.png",
+      "time": 18,
+      "role": "seam",
+      "label": "cut product -> proof"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-4-at-18.1s.png",
+      "time": 18.1,
+      "role": "seam",
+      "label": "+0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-5-at-18.2s.png",
+      "time": 18.2,
+      "role": "seam",
+      "label": "+0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-1-at-21.8s.png",
+      "time": 21.8,
+      "role": "seam",
+      "label": "cut -0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-2-at-21.9s.png",
+      "time": 21.9,
+      "role": "seam",
+      "label": "-0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-3-at-22s.png",
+      "time": 22,
+      "role": "seam",
+      "label": "cut proof -> decisions"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-4-at-22.1s.png",
+      "time": 22.1,
+      "role": "seam",
+      "label": "+0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-5-at-22.2s.png",
+      "time": 22.2,
+      "role": "seam",
+      "label": "+0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-1-at-25.8s.png",
+      "time": 25.8,
+      "role": "seam",
+      "label": "cut -0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-2-at-25.9s.png",
+      "time": 25.9,
+      "role": "seam",
+      "label": "-0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-3-at-26s.png",
+      "time": 26,
+      "role": "seam",
+      "label": "cut decisions -> mascot"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-4-at-26.1s.png",
+      "time": 26.1,
+      "role": "seam",
+      "label": "+0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-5-at-26.2s.png",
+      "time": 26.2,
+      "role": "seam",
+      "label": "+0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-1-at-30.8s.png",
+      "time": 30.8,
+      "role": "seam",
+      "label": "cut -0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-2-at-30.9s.png",
+      "time": 30.9,
+      "role": "seam",
+      "label": "-0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-3-at-31s.png",
+      "time": 31,
+      "role": "seam",
+      "label": "cut mascot -> evals"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-4-at-31.1s.png",
+      "time": 31.1,
+      "role": "seam",
+      "label": "+0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-5-at-31.2s.png",
+      "time": 31.2,
+      "role": "seam",
+      "label": "+0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-1-at-34.3s.png",
+      "time": 34.3,
+      "role": "seam",
+      "label": "cut -0.2"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-2-at-34.4s.png",
+      "time": 34.4,
+      "role": "seam",
+      "label": "-0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-3-at-34.5s.png",
+      "time": 34.5,
+      "role": "seam",
+      "label": "cut evals -> end"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-4-at-34.6s.png",
+      "time": 34.6,
+      "role": "seam",
+      "label": "+0.1"
+    },
+    {
+      "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-5-at-34.7s.png",
+      "time": 34.7,
+      "role": "seam",
+      "label": "+0.2"
+    }
+  ],
+  "contactSheets": [
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-beats-1.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-beats-2.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-01.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-02.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-03.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-04.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-05.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-06.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-07.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-08.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-phone-1.jpg",
+    "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-phone-2.jpg"
+  ],
+  "review": {
+    "window": [
+      0,
+      38.3
+    ],
+    "scenes": [
+      {
+        "id": "opening",
+        "start": 0,
+        "end": 4
+      },
+      {
+        "id": "brand",
+        "start": 4,
+        "end": 6
+      },
+      {
+        "id": "actions",
+        "start": 6,
+        "end": 12
+      },
+      {
+        "id": "product",
+        "start": 12,
+        "end": 18
+      },
+      {
+        "id": "proof",
+        "start": 18,
+        "end": 22
+      },
+      {
+        "id": "decisions",
+        "start": 22,
+        "end": 26
+      },
+      {
+        "id": "mascot",
+        "start": 26,
+        "end": 31
+      },
+      {
+        "id": "evals",
+        "start": 31,
+        "end": 34.5
+      },
+      {
+        "id": "end",
+        "start": 34.5,
+        "end": 38.3
+      }
+    ],
+    "beats": [
+      {
+        "time": 0.3,
+        "label": "opening",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-01-at-0.3s.png"
+      },
+      {
+        "time": 2,
+        "label": "opening mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-02-at-2s.png"
+      },
+      {
+        "time": 4.3,
+        "label": "brand",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-03-at-4.3s.png"
+      },
+      {
+        "time": 5,
+        "label": "brand mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-04-at-5s.png"
+      },
+      {
+        "time": 6.3,
+        "label": "actions",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-05-at-6.3s.png"
+      },
+      {
+        "time": 9,
+        "label": "actions mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-06-at-9s.png"
+      },
+      {
+        "time": 12.3,
+        "label": "product",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-07-at-12.3s.png"
+      },
+      {
+        "time": 15,
+        "label": "product mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-08-at-15s.png"
+      },
+      {
+        "time": 18.3,
+        "label": "proof",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-09-at-18.3s.png"
+      },
+      {
+        "time": 20,
+        "label": "proof mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-10-at-20s.png"
+      },
+      {
+        "time": 22.3,
+        "label": "decisions",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-11-at-22.3s.png"
+      },
+      {
+        "time": 24,
+        "label": "decisions mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-12-at-24s.png"
+      },
+      {
+        "time": 26.3,
+        "label": "mascot",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-13-at-26.3s.png"
+      },
+      {
+        "time": 28.5,
+        "label": "mascot mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-14-at-28.5s.png"
+      },
+      {
+        "time": 31.3,
+        "label": "evals",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-15-at-31.3s.png"
+      },
+      {
+        "time": 32.75,
+        "label": "evals mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-16-at-32.75s.png"
+      },
+      {
+        "time": 34.8,
+        "label": "end",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-17-at-34.8s.png"
+      },
+      {
+        "time": 36.4,
+        "label": "end mid",
+        "path": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/beat-18-at-36.4s.png"
+      }
+    ],
+    "seams": [
+      {
+        "time": 4,
+        "from": "opening",
+        "to": "brand",
+        "times": [
+          3.8,
+          3.9,
+          4,
+          4.1,
+          4.2
+        ],
+        "paths": [
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-1-at-3.8s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-2-at-3.9s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-3-at-4s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-4-at-4.1s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-01-5-at-4.2s.png"
+        ],
+        "sheet": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-01.jpg"
+      },
+      {
+        "time": 6,
+        "from": "brand",
+        "to": "actions",
+        "times": [
+          5.8,
+          5.9,
+          6,
+          6.1,
+          6.2
+        ],
+        "paths": [
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-1-at-5.8s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-2-at-5.9s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-3-at-6s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-4-at-6.1s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-02-5-at-6.2s.png"
+        ],
+        "sheet": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-02.jpg"
+      },
+      {
+        "time": 12,
+        "from": "actions",
+        "to": "product",
+        "times": [
+          11.8,
+          11.9,
+          12,
+          12.1,
+          12.2
+        ],
+        "paths": [
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-1-at-11.8s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-2-at-11.9s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-3-at-12s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-4-at-12.1s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-03-5-at-12.2s.png"
+        ],
+        "sheet": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-03.jpg"
+      },
+      {
+        "time": 18,
+        "from": "product",
+        "to": "proof",
+        "times": [
+          17.8,
+          17.9,
+          18,
+          18.1,
+          18.2
+        ],
+        "paths": [
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-1-at-17.8s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-2-at-17.9s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-3-at-18s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-4-at-18.1s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-04-5-at-18.2s.png"
+        ],
+        "sheet": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-04.jpg"
+      },
+      {
+        "time": 22,
+        "from": "proof",
+        "to": "decisions",
+        "times": [
+          21.8,
+          21.9,
+          22,
+          22.1,
+          22.2
+        ],
+        "paths": [
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-1-at-21.8s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-2-at-21.9s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-3-at-22s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-4-at-22.1s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-05-5-at-22.2s.png"
+        ],
+        "sheet": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-05.jpg"
+      },
+      {
+        "time": 26,
+        "from": "decisions",
+        "to": "mascot",
+        "times": [
+          25.8,
+          25.9,
+          26,
+          26.1,
+          26.2
+        ],
+        "paths": [
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-1-at-25.8s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-2-at-25.9s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-3-at-26s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-4-at-26.1s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-06-5-at-26.2s.png"
+        ],
+        "sheet": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-06.jpg"
+      },
+      {
+        "time": 31,
+        "from": "mascot",
+        "to": "evals",
+        "times": [
+          30.8,
+          30.9,
+          31,
+          31.1,
+          31.2
+        ],
+        "paths": [
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-1-at-30.8s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-2-at-30.9s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-3-at-31s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-4-at-31.1s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-07-5-at-31.2s.png"
+        ],
+        "sheet": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-07.jpg"
+      },
+      {
+        "time": 34.5,
+        "from": "evals",
+        "to": "end",
+        "times": [
+          34.3,
+          34.4,
+          34.5,
+          34.6,
+          34.7
+        ],
+        "paths": [
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-1-at-34.3s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-2-at-34.4s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-3-at-34.5s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-4-at-34.6s.png",
+          "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/seam-08-5-at-34.7s.png"
+        ],
+        "sheet": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-08.jpg"
+      }
+    ],
+    "sheets": {
+      "beats": [
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-beats-1.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-beats-2.jpg"
+      ],
+      "seams": [
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-01.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-02.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-03.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-04.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-05.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-06.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-07.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-seam-08.jpg"
+      ],
+      "phone": [
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-phone-1.jpg",
+        "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/snapshots/2c2d04f3-7c4f-4f40-9a7e-405af440008c/review-phone-2.jpg"
+      ]
+    },
+    "notes": []
+  },
+  "_meta": {
+    "version": "0.8.195",
+    "latestVersion": "0.8.188",
+    "updateAvailable": false
+  }
+}

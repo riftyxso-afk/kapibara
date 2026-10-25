@@ -1,0 +1,25 @@
+const {chromium}=require('/home/riftyxso/.npm/_npx/e41f203b7505f1fb/node_modules/playwright');
+const fs=require('node:fs');
+(async()=>{
+ const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+ const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:2});
+ await page.goto('http://127.0.0.1:4173/',{waitUntil:'networkidle'});
+ await page.screenshot({path:'launch-video/film/assets/home.png'});
+ await page.locator('#playground').scrollIntoViewIfNeeded();
+ await page.locator('[data-preset="force-push"]').click();
+ const response=page.waitForResponse(r=>r.url().endsWith('/api/evaluate'));
+ await page.locator('#run-playground-btn').click();
+ const result=await (await response).json();
+ fs.writeFileSync('launch-video/film/review/preflight-result.json',JSON.stringify(result,null,2));
+ await page.locator('#pg-result-badge').filter({hasText:'BLOCK'}).waitFor();
+ await page.locator('.playground-card').screenshot({path:'launch-video/film/assets/preflight.png'});
+ await page.locator('.playground-output').screenshot({path:'launch-video/film/assets/verdict.png'});
+ await page.locator('[data-preset="compare-conflict"]').click();
+ const response2=page.waitForResponse(r=>r.url().endsWith('/api/evaluate'));
+ await page.locator('#run-playground-btn').click();
+ fs.writeFileSync('launch-video/film/review/compare-result.json',JSON.stringify(await (await response2).json(),null,2));
+ await page.locator('#pg-result-badge').filter({hasText:'CONFLICT'}).waitFor();
+ await page.locator('.playground-card').screenshot({path:'launch-video/film/assets/compare.png'});
+ await browser.close();
+ console.log('Captured real home, preflight, verdict, compare. BLOCK score:',result.badgeText);
+})();

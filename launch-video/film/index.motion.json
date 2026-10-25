@@ -1,0 +1,10 @@
+{
+  "duration": 38.3,
+  "assertions": [
+    {
+      "kind": "appearsBy",
+      "selector": "#opening-a",
+      "bySec": 0.1
+    }
+  ]
+}

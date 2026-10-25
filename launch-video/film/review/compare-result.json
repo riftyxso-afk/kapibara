@@ -1,0 +1,46 @@
+{
+  "badgeText": "CONFLICT · 3 issue(s)",
+  "badgeTone": "block",
+  "toolLabel": "kapibara_compare · @kapibara/core",
+  "summary": "The sources report different amounts.",
+  "payload": {
+    "matches": false,
+    "issues": [
+      {
+        "type": "amount_mismatch",
+        "severity": "high",
+        "message": "The sources report different amounts.",
+        "values": {
+          "Source A": "$1,200.",
+          "Source B": "$1,500."
+        },
+        "recommendation": "Stop and confirm the correct amount with the user or source document."
+      },
+      {
+        "type": "date_mismatch",
+        "severity": "high",
+        "message": "The sources report different dates.",
+        "values": {
+          "Source A": "2026-05-01",
+          "Source B": "2026-05-15"
+        },
+        "recommendation": "Confirm the intended date before acting."
+      },
+      {
+        "type": "version_mismatch",
+        "severity": "high",
+        "message": "The sources report different versions.",
+        "values": {
+          "Source A": "v2.1.0",
+          "Source B": "v2.2.0"
+        },
+        "recommendation": "Confirm which version is authoritative."
+      }
+    ],
+    "checked": [
+      "amount",
+      "date",
+      "version"
+    ]
+  }
+}

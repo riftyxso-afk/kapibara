@@ -1,0 +1,322 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "GeistMono";
+      src: url("assets/fonts/GeistMono-Latin.woff2") format("woff2");
+      font-weight: 400 600;
+      font-style: normal;
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "ABCDiatype", sans-serif;
+      background: #c95838;
+    }
+
+    .s2-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .s2-camera {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 50% 25%, rgba(255, 224, 208, 0.35), transparent 60%),
+        linear-gradient(180deg, #cf6242 0%, #bd4b2a 55%, #9e3518 100%);
+    }
+
+    /* Stipple halftone pattern waves in background (matching Conqueror reference frame 5-7s) */
+    .s2-stipple {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 240, 232, 0.32) 2px, transparent 2px);
+      background-size: 12px 12px;
+      pointer-events: none;
+    }
+
+    .s2-subtitle {
+      position: relative;
+      z-index: 3;
+      font-size: 46px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #fff6f0;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 16px rgba(80, 18, 4, 0.25);
+    }
+
+    /* Giant Display Word behind the glassmorphic input bar */
+    .s2-giant-word {
+      position: relative;
+      z-index: 2;
+      font-size: 310px;
+      font-weight: 500;
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      color: #d65532;
+      text-shadow:
+        0 2px 0 rgba(255, 232, 220, 0.45),
+        0 18px 48px rgba(72, 16, 4, 0.35);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* Glassmorphic Command Input Bar overlapping the giant word */
+    .s2-input-shell {
+      position: absolute;
+      top: 520px;
+      left: 510px;
+      width: 900px;
+      height: 98px;
+      z-index: 5;
+      border-radius: 18px;
+      background: rgba(255, 246, 240, 0.38);
+      border: 2px solid rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 60px rgba(64, 14, 3, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px 0 32px;
+    }
+
+    .s2-typed-row {
+      display: flex;
+      align-items: center;
+      font-family: "GeistMono", monospace;
+      font-size: 34px;
+      font-weight: 500;
+      color: #181311;
+      letter-spacing: -0.02em;
+    }
+
+    .s2-char {
+      display: inline-block;
+      opacity: 0;
+    }
+
+    .s2-caret {
+      display: inline-block;
+      width: 3px;
+      height: 40px;
+      background: #181311;
+      margin-left: 4px;
+    }
+
+    .s2-submit-btn {
+      height: 64px;
+      padding: 0 26px;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #181311;
+      font-size: 24px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+    }
+
+    /* Animated Capybara Guardian perched right beside the input bar */
+    .s2-capy-guardian {
+      position: absolute;
+      top: 432px;
+      left: 1365px;
+      width: 170px;
+      height: 170px;
+      z-index: 6;
+    }
+
+    .s2-cursor {
+      position: absolute;
+      top: 640px;
+      left: 1460px;
+      width: 44px;
+      height: 44px;
+      z-index: 10;
+      pointer-events: none;
+    }
+  </style>
+
+  <div data-hf-id="hf-wq2t" id="root" data-composition-id="scene2" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-6jbt" id="s2-stage" class="clip s2-stage" data-start="0" data-duration="3">
+      <div data-hf-id="hf-sm5b" id="s2-camera" class="s2-camera" data-layout-allow-overflow>
+        <div data-hf-id="hf-0nga" class="s2-stipple" data-layout-ignore></div>
+
+        <div data-hf-id="hf-rawr" id="s2-subtitle" class="s2-subtitle">Just pass your agent's action</div>
+        <div data-hf-id="hf-vg56" id="s2-giant-word" class="s2-giant-word" data-layout-allow-overflow>Kapibara</div>
+
+        <!-- Glassmorphic Command Input Bar -->
+        <div data-hf-id="hf-yfl6" id="s2-input-shell" class="s2-input-shell" data-layout-allow-overlap>
+          <div data-hf-id="hf-sct3" class="s2-typed-row">
+            <span data-hf-id="hf-rkw0" class="s2-char">g</span><span data-hf-id="hf-m0lm" class="s2-char">i</span
+            ><span data-hf-id="hf-k12h" class="s2-char">t</span><span data-hf-id="hf-w3jb" class="s2-char">&nbsp;</span
+            ><span data-hf-id="hf-ifud" class="s2-char">p</span><span data-hf-id="hf-kfdi" class="s2-char">u</span
+            ><span data-hf-id="hf-jmrg" class="s2-char">s</span><span data-hf-id="hf-lmal" class="s2-char">h</span
+            ><span data-hf-id="hf-bk3r" class="s2-char">&nbsp;</span><span data-hf-id="hf-y67y" class="s2-char">-</span
+            ><span data-hf-id="hf-73z6" class="s2-char">-</span><span data-hf-id="hf-r6kz" class="s2-char">f</span
+            ><span data-hf-id="hf-oefs" class="s2-char">o</span><span data-hf-id="hf-j8gf" class="s2-char">r</span
+            ><span data-hf-id="hf-pznw" class="s2-char">c</span><span data-hf-id="hf-qs9y" class="s2-char">e</span
+            ><span data-hf-id="hf-b5sq" class="s2-char">&nbsp;</span><span data-hf-id="hf-nltq" class="s2-char">m</span
+            ><span data-hf-id="hf-p71u" class="s2-char">a</span><span data-hf-id="hf-obim" class="s2-char">i</span
+            ><span data-hf-id="hf-o04r" class="s2-char">n</span>
+            <span data-hf-id="hf-f987" id="s2-caret" class="s2-caret"></span>
+          </div>
+
+          <div data-hf-id="hf-utq8" id="s2-submit-btn" class="s2-submit-btn">
+            <span data-hf-id="hf-uo1s">Preflight</span>
+            <span data-hf-id="hf-p70p">→</span>
+          </div>
+        </div>
+
+        <!-- Smooth Capybara Guardian Rig -->
+        <div data-hf-id="hf-gij6" id="s2-capy" class="s2-capy-guardian" data-layout-allow-overlap>
+          <svg data-hf-id="hf-zw2q" viewBox="0 0 200 200" width="170" height="170" fill="none">
+            <g data-hf-id="hf-rrb5" id="s2-capy-rig">
+              <ellipse data-hf-id="hf-qa7b" cx="52" cy="54" rx="19" ry="23" fill="#f7e3d4" />
+              <ellipse data-hf-id="hf-tfo8" cx="53" cy="56" rx="10" ry="13" fill="#6b341e" />
+              <ellipse data-hf-id="hf-smd7" cx="146" cy="52" rx="19" ry="23" fill="#f7e3d4" />
+              <ellipse data-hf-id="hf-xv3q" cx="145" cy="54" rx="10" ry="13" fill="#6b341e" />
+              <path data-hf-id="hf-psjb"
+                d="M34 118C34 70 62 44 102 44C142 44 168 70 168 118C168 152 144 172 102 172C60 172 34 152 34 118Z"
+                fill="#fcf0e6"
+              />
+              <ellipse data-hf-id="hf-0rs6" cx="76" cy="94" rx="8.5" ry="14" fill="#181210" />
+              <ellipse data-hf-id="hf-smqv" cx="134" cy="92" rx="8.5" ry="14" fill="#181210" />
+              <rect data-hf-id="hf-wai8" x="82" y="96" width="66" height="62" rx="30" fill="#d9a585" />
+              <path data-hf-id="hf-nvhn"
+                d="M104 115L116 123L128 114M116 123V146"
+                stroke="#30180d"
+                stroke-width="6.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <!-- Raising Inspector Paw with orange shield badge -->
+              <g data-hf-id="hf-9xpb" id="s2-capy-paw">
+                <circle data-hf-id="hf-ks4b" cx="42" cy="142" r="24" fill="#e53d00" />
+                <path data-hf-id="hf-39zp"
+                  d="M34 142L40 148L51 136"
+                  stroke="#ffffff"
+                  stroke-width="4.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Big Crisp Pointer Cursor -->
+        <div data-hf-id="hf-japl" id="s2-cursor" class="s2-cursor" data-layout-ignore>
+          <svg data-hf-id="hf-l19c" viewBox="0 0 36 36" width="44" height="44" fill="none">
+            <path data-hf-id="hf-9xvj"
+              d="M7 4L29 16.5L18.5 19.5L14 30L7 4Z"
+              fill="#161512"
+              stroke="#ffffff"
+              stroke-width="2.5"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Start tightly zoomed in on the command input bar (like reference 4.5s - 5.8s), then pull back to reveal "Kapibara"
+    tl.fromTo(
+      "#s2-camera",
+      { scale: 2.35, x: 140, y: -95, transformOrigin: "center center" },
+      { scale: 1, x: 0, y: 0, duration: 1.05, ease: "expo.inOut" },
+      1.15,
+    );
+
+    // Type out "git push --force main" character by character (0.05s -> 1.15s)
+    const chars = document.querySelectorAll(".s2-char");
+    chars.forEach((ch, idx) => {
+      tl.fromTo(
+        ch,
+        { opacity: 0, y: 6 },
+        { opacity: 1, y: 0, duration: 0.04, ease: "none" },
+        0.06 + idx * 0.048,
+      );
+    });
+
+    // Blinking caret
+    tl.fromTo(
+      "#s2-caret",
+      { opacity: 1 },
+      { opacity: 0.15, duration: 0.25, yoyo: true, repeat: 9, ease: "steps(1)" },
+      0,
+    );
+
+    // Subtitle & Capybara guardian entrance as camera pulls back
+    tl.fromTo(
+      "#s2-subtitle",
+      { opacity: 0, y: 18, filter: "blur(8px)" },
+      { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, ease: "power3.out" },
+      1.45,
+    );
+
+    tl.fromTo(
+      "#s2-capy",
+      { y: 40, rotation: 12, scale: 0.75, opacity: 0 },
+      { y: 0, rotation: -4, scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+      1.55,
+    );
+    tl.fromTo(
+      "#s2-capy-paw",
+      { scale: 0, transformOrigin: "42px 142px" },
+      { scale: 1, duration: 0.32, ease: "back.out(2.2)" },
+      1.85,
+    );
+
+    // Cursor glides to the "Preflight ->" button and clicks at 2.45s
+    tl.fromTo(
+      "#s2-cursor",
+      { x: 180, y: 160, opacity: 0 },
+      { x: -135, y: -62, opacity: 1, duration: 0.48, ease: "power3.out" },
+      2.02,
+    );
+    tl.to(
+      "#s2-submit-btn",
+      { scale: 0.92, backgroundColor: "#e53d00", color: "#ffffff", duration: 0.12, ease: "power2.inOut" },
+      2.48,
+    );
+
+    // Zoom through the clicked button into Scene 3 white world (2.62s -> 2.98s)
+    tl.to(
+      "#s2-camera",
+      { scale: 4.2, opacity: 0, filter: "blur(14px)", duration: 0.34, ease: "power3.in" },
+      2.64,
+    );
+
+    window.__timelines["scene2"] = tl;
+  </script>
+</template>

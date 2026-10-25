@@ -1,0 +1,415 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "GeistMono";
+      src: url("assets/fonts/GeistMono-Latin.woff2") format("woff2");
+      font-weight: 400 600;
+      font-style: normal;
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "ABCDiatype", sans-serif;
+      background: #ffffff;
+    }
+
+    .s3-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+
+    /* Registration dots matching reference frames 8s-14s */
+    .s3-dot {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      background: #161512;
+    }
+    .s3-dot--1 {
+      top: 632px;
+      left: 724px;
+    }
+    .s3-dot--2 {
+      top: 632px;
+      left: 1004px;
+    }
+    .s3-dot--3 {
+      top: 344px;
+      left: 520px;
+      opacity: 0;
+    }
+
+    /* Center sentence line */
+    .s3-sentence-row {
+      position: absolute;
+      top: 525px;
+      left: 0;
+      width: 1920px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 46px;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      color: #161512;
+    }
+
+    .s3-state-line {
+      position: absolute;
+      white-space: nowrap;
+      opacity: 0;
+    }
+
+    .s3-state-line strong {
+      font-weight: 500;
+      color: #e53d00;
+    }
+
+    /* Floating Proof Cards above sentence (matching reference frames 9s-14s) */
+    .s3-proof-zone {
+      position: absolute;
+      top: 245px;
+      left: 560px;
+      width: 800px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s3-proof-card {
+      position: absolute;
+      background: #ffffff;
+      border: 1.5px solid #e8e5e0;
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(22, 21, 18, 0.08);
+      padding: 22px 28px;
+      opacity: 0;
+    }
+
+    .s3-card-rule {
+      width: 580px;
+    }
+
+    .s3-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: "GeistMono", monospace;
+      font-size: 18px;
+      color: #6f6a63;
+      margin-bottom: 12px;
+    }
+
+    .s3-badge-block {
+      background: #fde8e8;
+      color: #c81e1e;
+      font-family: "GeistMono", monospace;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .s3-rule-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .s3-rule-line {
+      font-size: 23px;
+      font-weight: 500;
+      color: #161512;
+    }
+
+    .s3-rule-bar-accent {
+      height: 8px;
+      width: 380px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #e53d00, #f39a7a);
+    }
+
+    /* Card 2: Secret Scan & Prompt Injection */
+    .s3-card-scan {
+      width: 620px;
+    }
+
+    .s3-code-pill {
+      font-family: "GeistMono", monospace;
+      font-size: 20px;
+      background: #f7f4f0;
+      padding: 12px 16px;
+      border-radius: 10px;
+      color: #161512;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .s3-redacted-tag {
+      background: #161512;
+      color: #ffffff;
+      font-size: 15px;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Card 3: Domain Rating / Risk Score Ring Gauge (matching reference frames 13s-14s) */
+    .s3-gauge-card {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      opacity: 0;
+    }
+
+    .s3-ring-wrap {
+      position: relative;
+      width: 118px;
+      height: 118px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s3-gauge-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .s3-gauge-label {
+      font-size: 26px;
+      color: #4a4640;
+      font-weight: 400;
+    }
+
+    .s3-gauge-num {
+      font-size: 54px;
+      font-weight: 500;
+      color: #161512;
+      line-height: 1.05;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Smooth Capybara Character Rig beside the gauge */
+    .s3-capy-helper {
+      width: 116px;
+      height: 116px;
+    }
+  </style>
+
+  <div data-hf-id="hf-qvwq" id="root" data-composition-id="scene3" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-v1oj" id="s3-stage" class="clip s3-stage" data-start="0" data-duration="7">
+      <!-- Registration square dots -->
+      <div data-hf-id="hf-dgzq" id="s3-dot-1" class="s3-dot s3-dot--1" data-layout-ignore></div>
+      <div data-hf-id="hf-o38m" id="s3-dot-2" class="s3-dot s3-dot--2" data-layout-ignore></div>
+      <div data-hf-id="hf-n3va" id="s3-dot-3" class="s3-dot s3-dot--3" data-layout-ignore></div>
+
+      <!-- Floating Proof Cards above sentence -->
+      <div data-hf-id="hf-zfmc" class="s3-proof-zone" data-layout-allow-overlap>
+        <!-- Proof 1: .kapibara/rules.md match -->
+        <div data-hf-id="hf-57f9" id="s3-proof-1" class="s3-proof-card s3-card-rule">
+          <div data-hf-id="hf-b0as" class="s3-card-head">
+            <span data-hf-id="hf-u2fl">.kapibara/rules.md · default:balanced</span>
+            <span data-hf-id="hf-bmdm" class="s3-badge-block">BLOCK</span>
+          </div>
+          <div data-hf-id="hf-1sik" class="s3-rule-bars">
+            <div data-hf-id="hf-hlup" class="s3-rule-line">Rule matched: Never force push to main</div>
+            <div data-hf-id="hf-kfqg" class="s3-rule-bar-accent"></div>
+          </div>
+        </div>
+
+        <!-- Proof 2: Secret & Prompt Injection Redaction -->
+        <div data-hf-id="hf-x4jz" id="s3-proof-2" class="s3-proof-card s3-card-scan">
+          <div data-hf-id="hf-xv98" class="s3-card-head">
+            <span data-hf-id="hf-f7jm">kapibara_scan_sensitive · outbound payload</span>
+            <span data-hf-id="hf-4bzl" class="s3-badge-block">REDACTED</span>
+          </div>
+          <div data-hf-id="hf-349w" class="s3-code-pill">
+            <span data-hf-id="hf-afsy">Bearer sk_live_****w8Yn</span>
+            <span data-hf-id="hf-hvnj" class="s3-redacted-tag">stripe_secret_key</span>
+          </div>
+        </div>
+
+        <!-- Proof 3: Circular Risk Gauge + Smooth Animated Capybara -->
+        <div data-hf-id="hf-y2xi" id="s3-proof-3" class="s3-gauge-card">
+          <div data-hf-id="hf-jc7i" class="s3-ring-wrap">
+            <svg data-hf-id="hf-s27q" width="118" height="118" viewBox="0 0 120 120">
+              <circle data-hf-id="hf-ofuf"
+                cx="60"
+                cy="60"
+                r="44"
+                fill="none"
+                stroke="#ece8e4"
+                stroke-width="16"
+              />
+              <circle data-hf-id="hf-p9v2"
+                id="s3-ring-arc"
+                cx="60"
+                cy="60"
+                r="44"
+                fill="none"
+                stroke="#d65532"
+                stroke-width="16"
+                stroke-linecap="round"
+                stroke-dasharray="276.46"
+                stroke-dashoffset="220"
+                transform="rotate(-90 60 60)"
+              />
+            </svg>
+          </div>
+          <div data-hf-id="hf-tiia" class="s3-gauge-meta">
+            <span data-hf-id="hf-v8ld" class="s3-gauge-label">Risk Score</span>
+            <span data-hf-id="hf-2kee" id="s3-score-text" class="s3-gauge-num">85</span>
+          </div>
+          <div data-hf-id="hf-mt1p" id="s3-capy" class="s3-capy-helper">
+            <svg data-hf-id="hf-i83e" viewBox="0 0 200 200" width="116" height="116" fill="none">
+              <circle data-hf-id="hf-3p1o" cx="100" cy="104" r="84" fill="#fbe8df" />
+              <g data-hf-id="hf-3cd6" id="s3-capy-head">
+                <ellipse data-hf-id="hf-04gc" cx="54" cy="56" rx="18" ry="22" fill="#ebd0be" />
+                <ellipse data-hf-id="hf-8ta0" cx="144" cy="54" rx="18" ry="22" fill="#ebd0be" />
+                <path data-hf-id="hf-pvt6"
+                  d="M36 118C36 72 64 46 102 46C140 46 166 72 166 118C166 150 142 168 102 168C62 168 36 150 36 118Z"
+                  fill="#f7e4d4"
+                />
+                <ellipse data-hf-id="hf-kqft" cx="76" cy="94" rx="8" ry="13.5" fill="#181210" />
+                <ellipse data-hf-id="hf-f28q" cx="132" cy="92" rx="8" ry="13.5" fill="#181210" />
+                <rect data-hf-id="hf-y47y" x="82" y="96" width="62" height="58" rx="28" fill="#cfa080" />
+                <path data-hf-id="hf-sln3"
+                  d="M103 114L114 122L125 113M114 122V143"
+                  stroke="#30180d"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Morphing Sentence States -->
+      <div data-hf-id="hf-k1ij" class="s3-sentence-row" data-layout-allow-overlap>
+        <div data-hf-id="hf-fb3d" id="s3-line-0" class="s3-state-line">{Your agent is}</div>
+        <div data-hf-id="hf-gxny" id="s3-line-1" class="s3-state-line">
+          Your agent is ... <strong data-hf-id="hf-piqe">checking .kapibara/rules.md</strong>
+        </div>
+        <div data-hf-id="hf-5brz" id="s3-line-2" class="s3-state-line">
+          Your agent is ... <strong data-hf-id="hf-o1ns">redacting leaked secrets</strong>
+        </div>
+        <div data-hf-id="hf-b4u8" id="s3-line-3" class="s3-state-line">
+          Your agent is ... <strong data-hf-id="hf-bwvk">scoring 6 risk factors</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // State 0: {Your agent is} (0.0s -> 1.3s)
+    tl.fromTo(
+      "#s3-line-0",
+      { opacity: 0, scale: 0.94, filter: "blur(6px)" },
+      { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.25, ease: "power3.out" },
+      0.05,
+    );
+    tl.to(
+      "#s3-line-0",
+      { opacity: 0, filter: "blur(6px)", duration: 0.16, ease: "power2.in" },
+      1.22,
+    );
+
+    // Registration dots drift wider as sentence expands
+    tl.to("#s3-dot-1", { x: -160, y: 18, duration: 0.5, ease: "power3.out" }, 1.25);
+    tl.to("#s3-dot-2", { x: 240, y: 18, duration: 0.5, ease: "power3.out" }, 1.25);
+    tl.to("#s3-dot-3", { opacity: 1, duration: 0.2 }, 1.35);
+
+    // State 1: checking .kapibara/rules.md (1.3s -> 3.15s)
+    tl.fromTo(
+      "#s3-line-1",
+      { opacity: 0, y: 12, filter: "blur(6px)" },
+      { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "power3.out" },
+      1.3,
+    );
+    tl.fromTo(
+      "#s3-proof-1",
+      { opacity: 0, y: 26, scale: 0.92 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.34, ease: "back.out(1.5)" },
+      1.4,
+    );
+    tl.to(
+      "#s3-line-1, #s3-proof-1",
+      { opacity: 0, y: -14, filter: "blur(6px)", duration: 0.18, ease: "power2.in" },
+      3.05,
+    );
+
+    // State 2: redacting leaked secrets (3.18s -> 4.95s)
+    tl.fromTo(
+      "#s3-line-2",
+      { opacity: 0, y: 12, filter: "blur(6px)" },
+      { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "power3.out" },
+      3.18,
+    );
+    tl.fromTo(
+      "#s3-proof-2",
+      { opacity: 0, y: 26, scale: 0.92 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.34, ease: "back.out(1.5)" },
+      3.26,
+    );
+    tl.to(
+      "#s3-line-2, #s3-proof-2",
+      { opacity: 0, y: -14, filter: "blur(6px)", duration: 0.18, ease: "power2.in" },
+      4.85,
+    );
+
+    // State 3: scoring 6 risk factors + circular ring gauge (4.98s -> 6.95s)
+    tl.fromTo(
+      "#s3-line-3",
+      { opacity: 0, y: 12, filter: "blur(6px)" },
+      { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "power3.out" },
+      4.98,
+    );
+    tl.fromTo(
+      "#s3-proof-3",
+      { opacity: 0, y: 24, scale: 0.92 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.6)" },
+      5.05,
+    );
+    // Ring arc fills from 23/100 to 85/100
+    tl.fromTo(
+      "#s3-ring-arc",
+      { strokeDashoffset: 212 },
+      { strokeDashoffset: 41, duration: 1.1, ease: "power3.out" },
+      5.15,
+    );
+    // Smooth Capybara nod
+    tl.fromTo(
+      "#s3-capy-head",
+      { rotation: -8, y: 6, transformOrigin: "100px 120px" },
+      { rotation: 6, y: -4, duration: 0.32, yoyo: true, repeat: 2, ease: "sine.inOut" },
+      5.2,
+    );
+
+    window.__timelines["scene3"] = tl;
+  </script>
+</template>

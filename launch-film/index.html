@@ -1,0 +1,109 @@
+<!doctype html>
+<html
+  lang="en"
+  data-composition-variables='[
+    {"id":"brandName","type":"string","label":"Brand Name","default":"Kapibara"},
+    {"id":"tagline","type":"string","label":"Tagline","default":"Your AI can act. Kapibara checks first."},
+    {"id":"installCmd","type":"string","label":"Install Command","default":"npx -y @kapibara/mcp"},
+    {"id":"accentColor","type":"color","label":"Accent Color","default":"#e53d00"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Kapibara — Launch Motion Film</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "ABCDiatype";
+        src: url("assets/fonts/ABCDiatype-Regular.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "ABCDiatype";
+        src: url("assets/fonts/ABCDiatype-Medium.otf") format("opentype");
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "GeistMono";
+        src: url("assets/fonts/GeistMono-Latin.woff2") format("woff2");
+        font-weight: 400 600;
+        font-style: normal;
+      }
+      :root {
+        --ground: #070606;
+        --ink: #ffffff;
+        --accentColor: #e53d00;
+        --font-display: "ABCDiatype", sans-serif;
+        --font-mono: "GeistMono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--ground);
+        font-family: var(--font-display);
+        -webkit-font-smoothing: antialiased;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #base-plate {
+        position: absolute;
+        inset: 0;
+        background: #070606;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-u6xb" id="root" data-composition-id="main" data-start="0" data-duration="38" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-w238" id="base-plate" data-layout-ignore></div>
+
+      <!-- 7 Scene Sub-Compositions (0.0s - 38.0s) -->
+      <div data-hf-id="hf-g94m" id="scene1" class="clip" data-composition-id="scene1" data-composition-src="compositions/scene1.html" data-start="0" data-duration="4.5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 1"></div>
+      <div data-hf-id="hf-b17v" id="scene2" class="clip" data-composition-id="scene2" data-composition-src="compositions/scene2.html" data-start="4.5" data-duration="3" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 2"></div>
+      <div data-hf-id="hf-2aue" id="scene3" class="clip" data-composition-id="scene3" data-composition-src="compositions/scene3.html" data-start="7.5" data-duration="7" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 3"></div>
+      <div data-hf-id="hf-vnbp" id="scene4" class="clip" data-composition-id="scene4" data-composition-src="compositions/scene4.html" data-start="14.5" data-duration="6" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 4"></div>
+      <div data-hf-id="hf-m2z9" id="scene5" class="clip" data-composition-id="scene5" data-composition-src="compositions/scene5.html" data-start="20.5" data-duration="5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 5"></div>
+      <div data-hf-id="hf-tryt" id="scene6" class="clip" data-composition-id="scene6" data-composition-src="compositions/scene6.html" data-start="25.5" data-duration="5.5" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 6"></div>
+      <div data-hf-id="hf-pxg0" id="scene7" class="clip" data-composition-id="scene7" data-composition-src="compositions/scene7.html" data-start="31" data-duration="7" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index: 7"></div>
+
+      <!-- Backsound + Synchronized SFX Cues -->
+      <audio data-hf-id="hf-7sh1" id="bgm-main" class="clip" src="assets/music/backsound.mp3" data-start="0" data-duration="38" data-volume="0.82" data-fade-in="0.2" data-fade-out="1.2" data-track-index="2"></audio>
+      <audio data-hf-id="hf-wmkq" id="sfx-s1-pop1" class="clip" src="assets/sfx/click-soft.mp3" data-start="0.85" data-duration="0.37" data-volume="0.35" data-track-index="3"></audio>
+      <audio data-hf-id="hf-2u0y" id="sfx-s1-pop2" class="clip" src="assets/sfx/click-soft.mp3" data-start="1.65" data-duration="0.37" data-volume="0.35" data-track-index="3"></audio>
+      <audio data-hf-id="hf-d97d" id="sfx-s1-pop3" class="clip" src="assets/sfx/click-soft.mp3" data-start="2.45" data-duration="0.37" data-volume="0.38" data-track-index="3"></audio>
+      <audio data-hf-id="hf-w4r1" id="sfx-s1-glitch" class="clip" src="assets/sfx/glitch-3.mp3" data-start="3.2" data-duration="1.2" data-volume="0.32" data-track-index="3"></audio>
+      <audio data-hf-id="hf-61gd" id="sfx-s2-typing" class="clip" src="assets/sfx/typing.mp3" data-start="4.55" data-duration="1.4" data-volume="0.38" data-track-index="3"></audio>
+      <audio data-hf-id="hf-t99f" id="sfx-s2-whoosh" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="5.8" data-duration="0.57" data-volume="0.36" data-track-index="4"></audio>
+      <audio data-hf-id="hf-2dcs" id="sfx-s2-click" class="clip" src="assets/sfx/click-soft.mp3" data-start="7.05" data-duration="0.37" data-volume="0.42" data-track-index="3"></audio>
+      <audio data-hf-id="hf-pt6w" id="sfx-s3-pop1" class="clip" src="assets/sfx/pop.mp3" data-start="8.9" data-duration="0.7" data-volume="0.34" data-track-index="3"></audio>
+      <audio data-hf-id="hf-nwaj" id="sfx-s3-pop2" class="clip" src="assets/sfx/pop.mp3" data-start="10.8" data-duration="0.7" data-volume="0.34" data-track-index="3"></audio>
+      <audio data-hf-id="hf-ewql" id="sfx-s3-pop3" class="clip" src="assets/sfx/pop.mp3" data-start="12.7" data-duration="0.7" data-volume="0.38" data-track-index="3"></audio>
+      <audio data-hf-id="hf-2jvn" id="sfx-s4-whoosh" class="clip" src="assets/sfx/whoosh.mp3" data-start="14.5" data-duration="0.57" data-volume="0.36" data-track-index="4"></audio>
+      <audio data-hf-id="hf-qpql" id="sfx-s5-impact" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="20.5" data-duration="2.0" data-volume="0.38" data-track-index="4"></audio>
+      <audio data-hf-id="hf-y8ek" id="sfx-s5-pop" class="clip" src="assets/sfx/pop.mp3" data-start="21.7" data-duration="0.7" data-volume="0.34" data-track-index="3"></audio>
+      <audio data-hf-id="hf-dh3k" id="sfx-s6-pop1" class="clip" src="assets/sfx/pop.mp3" data-start="25.9" data-duration="0.7" data-volume="0.36" data-track-index="3"></audio>
+      <audio data-hf-id="hf-5qrs" id="sfx-s6-pop2" class="clip" src="assets/sfx/pop.mp3" data-start="28.5" data-duration="0.7" data-volume="0.36" data-track-index="3"></audio>
+      <audio data-hf-id="hf-fng7" id="sfx-s7-impact" class="clip" src="assets/sfx/impact-bass-2.mp3" data-start="34.3" data-duration="2.5" data-volume="0.42" data-track-index="4"></audio>
+      <audio data-hf-id="hf-2r9i" id="sfx-s7-typing" class="clip" src="assets/sfx/typing.mp3" data-start="35.1" data-duration="1.5" data-volume="0.36" data-track-index="3"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

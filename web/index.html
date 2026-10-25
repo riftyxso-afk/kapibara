@@ -1,0 +1,1878 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"
+    />
+    <title>Kapibara · Verification &amp; Risk-Check Layer for AI Agents</title>
+    <meta
+      name="description"
+      content="Your AI can act. Kapibara checks before it does. Deterministic preflight gates, 6-factor action risk scoring, cross-source consistency checks, and secret redaction for AI agents."
+    />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfbf9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0d0c" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="landing landing--wide landing--home">
+      <!-- Top Navigation (mirrors terms.so .landing-nav.landing-col) -->
+      <header class="landing-nav landing-col">
+        <a aria-label="Kapibara home" class="landing-mark" href="#top">
+          <img
+            class="landing-mark-logo"
+            src="./assets/logo.png"
+            alt="Kapibara logo"
+            width="30"
+            height="30"
+          />
+          <span class="landing-mark-word">Kapibara</span>
+        </a>
+        <nav aria-label="Primary" class="pill-navigation landing-actions">
+          <div class="pill-navigation-rail" id="top-pill-rail" data-clip="off" data-animated="true">
+            <div class="pill-navigation-links">
+              <a class="action-button action-button--ghost action-button--compact" href="#preflight"
+                >Preflight</a
+              >
+              <a class="action-button action-button--ghost action-button--compact" href="#risk"
+                >Action risk</a
+              >
+              <a class="action-button action-button--ghost action-button--compact" href="#verify"
+                >Scan &amp; compare</a
+              >
+              <a
+                class="action-button action-button--ghost action-button--compact"
+                href="#playground"
+                >Playground</a
+              >
+              <a class="action-button action-button--ghost action-button--compact" href="#skills"
+                >Skills</a
+              >
+              <button
+                type="button"
+                class="action-button action-button--brand action-button--compact"
+                data-open-agent-setup
+              >
+                Setup for agent
+              </button>
+            </div>
+            <div class="pill-navigation-highlight" aria-hidden="true"></div>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Hero Section (mirrors terms.so .landing-hero.landing-hero--home) -->
+      <div class="landing-hero landing-hero--home landing-col" id="top">
+        <!-- Floating Monospace Agent Prompts on Left & Right Margins -->
+        <div
+          class="landing-poetry"
+          id="hero-poetry"
+          aria-hidden="true"
+          style="
+            --poetry-size: 11px;
+            --poetry-opacity: 0.5;
+            --poetry-height: 800px;
+            --poetry-top: -72px;
+            --poetry-bleed: 80px;
+            --poetry-zone: 240px;
+          "
+        >
+          <pre class="landing-poetry-grid" data-side="left" id="poetry-left"></pre>
+          <pre class="landing-poetry-grid" data-side="right" id="poetry-right"></pre>
+        </div>
+
+        <!-- Animated 4-Line Hero Headline -->
+        <h1
+          class="landing-headline"
+          id="hero-headline"
+          aria-label="Check risky actions before they run. Compare sources for hidden conflicts. Scan secrets and prompt injections. Your AI can act. Kapibara checks first."
+        >
+          <span class="landing-headline-line landing-headline-brand" data-line="0"
+            >Check <span class="landing-kern">r</span>isky actions be<span class="landing-kern"
+              >f</span
+            >ore they <span class="landing-kern">r</span>un.</span
+          >
+          <span class="landing-headline-line landing-headline-brand" data-line="1"
+            >Compa<span class="landing-kern">r</span>e sou<span class="landing-kern">r</span>ces
+            <span class="landing-kern">f</span>or hidden conflicts.</span
+          >
+          <span class="landing-headline-line landing-headline-brand" data-line="2"
+            >Scan sec<span class="landing-kern">r</span>ets and p<span class="landing-kern">r</span
+            >ompt injections.</span
+          >
+          <span class="landing-headline-line" data-line="3"
+            >Your AI can act. Kapibara checks first.</span
+          >
+        </h1>
+
+        <!-- Hero CTA Bar: Orange CTA + "Setup for agent" Pill with Overlapping Agent Logos -->
+        <div class="landing-cta-wrap landing-chips" id="hero-chips" data-show="true">
+          <div class="hero-primary-actions">
+            <a class="action-button hero-btn-orange" href="#playground"> Run preflight </a>
+
+            <div class="agent-setup-trigger-wrap" id="agent-setup-container">
+              <button
+                type="button"
+                class="action-button agent-setup-trigger"
+                id="agent-setup-btn"
+                aria-expanded="false"
+                aria-controls="agent-setup-popover"
+              >
+                <span class="agent-avatar-stack" aria-hidden="true">
+                  <!-- 1. OpenAI / Codex Logo -->
+                  <span class="agent-avatar agent-avatar--openai" title="OpenAI Codex">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M21.55 10.04A5.57 5.57 0 0 0 16.76 2.9a5.59 5.59 0 0 0-9.52-1.15A5.57 5.57 0 0 0 1.9 7.5a5.58 5.58 0 0 0 .68 6.46 5.57 5.57 0 0 0 4.79 7.14 5.59 5.59 0 0 0 9.52 1.15 5.57 5.57 0 0 0 5.34-5.75 5.58 5.58 0 0 0-.68-6.46Z"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12 7.2v9.6M7.84 9.6l8.32 4.8M16.16 9.6l-8.32 4.8"
+                        stroke="currentColor"
+                        stroke-width="1.65"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </span>
+                  <!-- 2. Claude / Anthropic Logo -->
+                  <span
+                    class="agent-avatar agent-avatar--claude"
+                    title="Claude Code &amp; Claude Desktop"
+                  >
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 2.75v18.5M4.6 6.4l14.8 11.2M19.4 6.4 4.6 17.6M2.9 12h18.2M8.1 3.5l7.8 17M15.9 3.5l-7.8 17"
+                        stroke="currentColor"
+                        stroke-width="2.1"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </span>
+                  <!-- 3. Cursor Cube Logo -->
+                  <span class="agent-avatar agent-avatar--cursor" title="Cursor">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 2.6 20.2 7.3v9.4L12 21.4 3.8 16.7V7.3L12 2.6Z"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12 2.6 20.2 7.3 12 12 3.8 7.3 12 2.6Z"
+                        fill="currentColor"
+                        fill-opacity="0.28"
+                      />
+                      <path
+                        d="M12 12v9.4M12 12l8.2-4.7M12 12 3.8 7.3"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span>Setup for agent</span>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="agent-setup-chevron"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M6.5 9.5 12 15l5.5-5.5"
+                    stroke="currentColor"
+                    stroke-width="2.1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <!-- Origin-Aware Setup Popover -->
+              <div
+                class="agent-setup-popover"
+                id="agent-setup-popover"
+                role="dialog"
+                aria-label="Setup Kapibara for your AI agent"
+                data-open="false"
+              >
+                <div class="sheet-drag-handle" aria-hidden="true"></div>
+                <button
+                  type="button"
+                  class="agent-popover-close"
+                  aria-label="Close setup modal"
+                  data-close-agent-setup
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M18 6 6 18M6 6l12 12"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+                <div class="agent-popover-head">
+                  <div class="agent-popover-title">
+                    <h2>
+                      <img
+                        class="kapibara-inline-logo"
+                        src="./assets/logo.png"
+                        alt=""
+                        width="20"
+                        height="20"
+                      />Connect Kapibara MCP &amp; skills
+                    </h2>
+                    <p>5 read-only verification tools and 6 slash skills over local stdio.</p>
+                  </div>
+                  <div class="agent-mode-switch" role="group" aria-label="Install mode">
+                    <button
+                      type="button"
+                      class="agent-mode-btn"
+                      data-install-mode="npx"
+                      aria-pressed="true"
+                    >
+                      npx
+                    </button>
+                    <button
+                      type="button"
+                      class="agent-mode-btn"
+                      data-install-mode="local"
+                      aria-pressed="false"
+                    >
+                      Local --cwd
+                    </button>
+                  </div>
+                </div>
+
+                <div class="agent-tabs" role="tablist" aria-label="Choose agent">
+                  <button
+                    type="button"
+                    role="tab"
+                    class="agent-tab"
+                    data-agent="claude-code"
+                    aria-selected="true"
+                  >
+                    <span class="agent-avatar agent-avatar--claude" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M12 2.75v18.5M4.6 6.4l14.8 11.2M19.4 6.4 4.6 17.6M2.9 12h18.2"
+                          stroke="currentColor"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </span>
+                    <span>Claude Code</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="tab"
+                    class="agent-tab"
+                    data-agent="codex"
+                    aria-selected="false"
+                  >
+                    <span class="agent-avatar agent-avatar--openai" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="2" />
+                        <path
+                          d="M12 6.5v11M7.2 9.2l9.6 5.6M16.8 9.2l-9.6 5.6"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                        />
+                      </svg>
+                    </span>
+                    <span>Codex</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="tab"
+                    class="agent-tab"
+                    data-agent="cursor"
+                    aria-selected="false"
+                  >
+                    <span class="agent-avatar agent-avatar--cursor" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M12 2.8 19.8 7.3v9.4L12 21.2 4.2 16.7V7.3L12 2.8Z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </span>
+                    <span>Cursor</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="tab"
+                    class="agent-tab"
+                    data-agent="opencode"
+                    aria-selected="false"
+                  >
+                    <span class="agent-avatar agent-avatar--opencode" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="m7.5 8.5-4 3.5 4 3.5M16.5 8.5l4 3.5-4 3.5M13.5 6.5l-3 11"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span>OpenCode</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    role="tab"
+                    class="agent-tab"
+                    data-agent="claude-desktop"
+                    aria-selected="false"
+                  >
+                    <span class="agent-avatar agent-avatar--claude" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M12 2.75v18.5M4.6 6.4l14.8 11.2M19.4 6.4 4.6 17.6M2.9 12h18.2"
+                          stroke="currentColor"
+                          stroke-width="2.2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </span>
+                    <span>Claude Desktop</span>
+                  </button>
+                </div>
+
+                <div class="agent-panel" id="agent-setup-panel">
+                  <div class="agent-panel-meta">
+                    <span id="agent-config-label">Run in terminal (MCP + Plugin skills)</span>
+                    <code id="agent-config-target">claude mcp add kapibara</code>
+                  </div>
+                  <div class="agent-code-box">
+                    <pre id="agent-config-code">
+claude mcp add kapibara -- npx -y @kapibara/mcp
+claude plugin marketplace add https://github.com/kapibara/kapibara
+claude plugin install kapibara</pre>
+                    <button
+                      type="button"
+                      class="copy-pill-btn"
+                      id="copy-agent-config"
+                      data-copied="false"
+                      aria-label="Copy setup command"
+                    >
+                      <span class="copy-icon-slot" aria-hidden="true">
+                        <svg class="icon-copy" viewBox="0 0 24 24" fill="none">
+                          <rect
+                            x="9"
+                            y="9"
+                            width="11"
+                            height="11"
+                            rx="2.5"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          />
+                          <path
+                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                        <svg class="icon-check" viewBox="0 0 24 24" fill="none">
+                          <path
+                            d="m5 12.5 4.5 4.5L19 7.5"
+                            stroke="currentColor"
+                            stroke-width="2.4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
+                      <span id="copy-agent-label">Copy</span>
+                    </button>
+                  </div>
+                  <div class="agent-popover-foot">
+                    <span>Verify connection by calling <code>kapibara_rules_check</code>.</span>
+                    <a href="#skills" data-close-agent-setup>View all 6 skills</a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="agent-setup-backdrop"
+                id="agent-setup-backdrop"
+                aria-hidden="true"
+                data-close-agent-setup
+              ></div>
+            </div>
+          </div>
+
+          <!-- Secondary Feature Jump Chips (mirrors terms.so .landing-chip) -->
+          <div class="hero-feature-chips">
+            <a
+              class="action-button action-button--secondary action-button--compact landing-chip"
+              href="#preflight"
+            >
+              <span>Preflight &amp; project rules</span>
+            </a>
+            <a
+              class="action-button action-button--secondary action-button--compact landing-chip"
+              href="#risk"
+            >
+              <span>6-factor action risk &amp; second opinion</span>
+            </a>
+            <a
+              class="action-button action-button--secondary action-button--compact landing-chip"
+              href="#verify"
+            >
+              <span>Compare sources &amp; redact secrets</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Animated Squircle Preview Cards (mirrors terms.so .LandingPreview-module__aN7EWG__previews) -->
+      <div class="LandingPreview-module__aN7EWG__previews landing-col">
+        <!-- ============================================================ -->
+        <!-- CARD 1: PREFLIGHT & PROJECT RULES (#preflight)               -->
+        <!-- ============================================================ -->
+        <section
+          id="preflight"
+          class="LandingPreview-module__aN7EWG__feature"
+          aria-labelledby="preview-preflight"
+          data-preview="preflight"
+          data-phase="ready"
+          data-running="true"
+          data-paused="false"
+        >
+          <div class="squircle LandingPreview-module__aN7EWG__card" data-squircle="24">
+            <div class="squircle-shadow" aria-hidden="true">
+              <div class="squircle-shadow-shape"></div>
+            </div>
+            <div class="squircle-body">
+              <header class="LandingPreview-module__aN7EWG__featureHeader">
+                <svg
+                  class="LandingPreview-module__aN7EWG__featureBorder"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <rect
+                    width="100%"
+                    height="100%"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="0.75"
+                    stroke-dasharray="4 6"
+                    stroke-linecap="round"
+                  ></rect>
+                </svg>
+                <h2 class="LandingPreview-module__aN7EWG__featureHeading" id="preview-preflight">
+                  Preflight risky actions
+                </h2>
+                <p>
+                  Evaluate shell commands, git operations, deletes, and deploys against
+                  <code>.kapibara/rules.md</code> before execution.
+                </p>
+                <div class="preview-header-controls">
+                  <button
+                    type="button"
+                    class="action-button action-button--secondary action-button--compact LandingPreview-module__aN7EWG__playbackButton"
+                    data-toggle-preview="preflight"
+                    aria-label="Pause Preflight risky actions animation"
+                    aria-controls="preview-preflight-animation"
+                    title="Pause animation"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      class="terms-icon"
+                      data-icon-pause
+                    >
+                      <path
+                        d="M16.95 3.25h.1c.66 0 1.24 0 1.7.06.49.07.96.22 1.34.6.38.38.53.85.6 1.34.06.46.06 1.03.06 1.7v10.1c0 .66 0 1.24-.06 1.7-.07.49-.22.96-.6 1.34-.38.38-.85.53-1.34.6-.46.06-1.03.06-1.7.06h-.1c-.66 0-1.24 0-1.7-.06-.49-.07-.96-.22-1.34-.6-.38-.38-.53-.85-.6-1.34-.06-.46-.06-1.03-.06-1.7V6.95c0-.66 0-1.24.06-1.7.07-.49.22-.96.6-1.34.38-.38.85-.53 1.34-.6.46-.06 1.03-.06 1.7-.06Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M6.95 3.25h.1c.66 0 1.24 0 1.7.06.49.07.96.22 1.34.6.38.38.53.85.6 1.34.06.46.06 1.03.06 1.7v10.1c0 .66 0 1.24-.06 1.7-.07.49-.22.96-.6 1.34-.38.38-.85.53-1.34.6-.46.06-1.03.06-1.7.06h-.1c-.66 0-1.24 0-1.7-.06-.49-.07-.96-.22-1.34-.6-.38-.38-.53-.85-.6-1.34-.06-.46-.06-1.03-.06-1.7V6.95c0-.66 0-1.24.06-1.7.07-.49.22-.96.6-1.34.38-.38.85-.53 1.34-.6.46-.06 1.03-.06 1.7-.06Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      class="terms-icon"
+                      data-icon-play
+                      hidden
+                    >
+                      <path
+                        d="M13.94 6.34c1.63.92 2.92 1.65 3.83 2.32.92.67 1.6 1.38 1.85 2.3.18.68.18 1.4 0 2.08-.25.92-.93 1.63-1.85 2.3-.91.67-2.2 1.4-3.83 2.32-1.58.9-2.91 1.65-3.92 2.08-1.01.43-1.94.65-2.84.4a3.48 3.48 0 0 1-1.75-1.03c-.66-.67-.93-1.59-1.05-2.7-.13-1.1-.13-2.53-.13-4.36v-.1c0-1.83 0-3.26.13-4.36.12-1.11.39-2.03 1.05-2.7.49-.49 1.09-.85 1.75-1.03.9-.25 1.83-.03 2.84.4 1.01.43 2.34 1.18 3.92 2.08Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </header>
+
+              <div class="landing-card LandingPreview-module__aN7EWG__preview">
+                <div
+                  id="preview-preflight-animation"
+                  class="LandingPreview-module__aN7EWG__loop"
+                  data-loop-state="playing"
+                >
+                  <div class="LandingPreview-module__aN7EWG__draftStage">
+                    <!-- Stage 1: Launch Prompt + Recent Evaluations -->
+                    <div
+                      class="LandingPreview-module__aN7EWG__launch"
+                      id="preflight-launch"
+                      data-show="false"
+                    >
+                      <div class="LandingPreview-module__aN7EWG__intro">
+                        <h4>One check before irreversible side effects.</h4>
+                        <p>
+                          Skill: <code>/kapibara:preflight-check</code> · Tool:
+                          <code>kapibara_preflight</code>
+                        </p>
+                      </div>
+                      <div
+                        class="LandingPreview-module__aN7EWG__composer"
+                        id="preflight-composer"
+                        data-sending="false"
+                      >
+                        <div class="home-composer">
+                          <textarea
+                            readonly
+                            aria-label="Agent action intent"
+                            id="preflight-prompt-input"
+                            placeholder="Describe the action your agent is about to execute…"
+                          >
+Run git push --force origin main and deploy release v2.4.0 to production.</textarea>
+                          <div class="home-composer-actions">
+                            <div class="home-composer-tools">
+                              <span class="composer-pill-tag">kapibara_preflight</span>
+                              <span class="composer-pill-tag">.kapibara/rules.md</span>
+                            </div>
+                            <button
+                              type="button"
+                              class="action-button action-button--primary action-button--compact home-send-button"
+                              tabindex="-1"
+                            >
+                              <span>Check action</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <section
+                        class="dashboard-recents LandingPreview-module__aN7EWG__recents"
+                        data-show="true"
+                      >
+                        <h4>Recent preflight checks:</h4>
+                        <div class="dashboard-contracts">
+                          <div class="dashboard-contract LandingPreview-module__aN7EWG__agreement">
+                            <div class="dashboard-contract-copy">
+                              <span class="dashboard-contract-title"
+                                >git push --force → origin/main</span
+                              >
+                              <span class="dashboard-contract-date"
+                                >Rule: Never force-push to main or master</span
+                              >
+                            </div>
+                            <span class="dashboard-status dashboard-status--block"
+                              >BLOCK · 89/100</span
+                            >
+                          </div>
+                          <div class="dashboard-contract LandingPreview-module__aN7EWG__agreement">
+                            <div class="dashboard-contract-copy">
+                              <span class="dashboard-contract-title"
+                                >deploy → production-us-east</span
+                              >
+                              <span class="dashboard-contract-date"
+                                >Rule: Ask before deploying to production</span
+                              >
+                            </div>
+                            <span class="dashboard-status dashboard-status--approval"
+                              >REQUIRE_APPROVAL · 70/100</span
+                            >
+                          </div>
+                          <div class="dashboard-contract LandingPreview-module__aN7EWG__agreement">
+                            <div class="dashboard-contract-copy">
+                              <span class="dashboard-contract-title">rm -rf → dist/ build/</span>
+                              <span class="dashboard-contract-date"
+                                >Profile: developer · Workspace build artifacts</span
+                              >
+                            </div>
+                            <span class="dashboard-status dashboard-status--allow"
+                              >ALLOW · 10/100</span
+                            >
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <!-- Stage 2: Split Workspace (Agent Chat + Structured Verdict Document) -->
+                    <div
+                      class="LandingPreview-module__aN7EWG__draftWorkspace"
+                      id="preflight-workspace"
+                      data-show="true"
+                    >
+                      <div class="LandingPreview-module__aN7EWG__draftChat">
+                        <div class="LandingPreview-module__aN7EWG__chatHeading">
+                          <span
+                            ><img
+                              class="kapibara-inline-logo"
+                              src="./assets/logo.png"
+                              alt=""
+                              width="16"
+                              height="16"
+                            />Agent preflight gate</span
+                          >
+                          <span>stdio · readOnlyHint: true</span>
+                        </div>
+                        <div class="LandingPreview-module__aN7EWG__draftMessages">
+                          <div
+                            class="home-message home-message--user LandingPreview-module__aN7EWG__question"
+                            id="preflight-user-msg"
+                            data-show="true"
+                          >
+                            <div class="home-chat-text">
+                              <p>
+                                <strong
+                                  >Run git push --force origin main and deploy release v2.4.0 to
+                                  production.</strong
+                                >
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="LandingPreview-module__aN7EWG__responseStack">
+                            <div
+                              class="LandingPreview-module__aN7EWG__thinking LandingPreview-module__aN7EWG__reveal"
+                              id="preflight-thinking"
+                              data-show="false"
+                            >
+                              <span class="home-opening-dots" aria-hidden="true">
+                                <span style="--dot-delay: 0ms"></span>
+                                <span style="--dot-delay: 120ms"></span>
+                                <span style="--dot-delay: 240ms"></span>
+                              </span>
+                              <span>Evaluating kapibara_preflight &amp; .kapibara/rules.md…</span>
+                            </div>
+
+                            <div class="home-message home-message--assistant">
+                              <div
+                                class="LandingPreview-module__aN7EWG__answerStack LandingPreview-module__aN7EWG__reveal"
+                                id="preflight-answer-wrap"
+                                data-show="true"
+                              >
+                                <div class="home-chat-text LandingPreview-module__aN7EWG__measure">
+                                  <p>
+                                    Decision: <strong>BLOCK (critical, score 89/100)</strong>.
+                                    Force-pushing to protected branch <strong>main</strong> violates
+                                    project rule
+                                    <strong>"Never force-push to main or master"</strong>. Push to a
+                                    feature branch and open a pull request instead.
+                                  </p>
+                                </div>
+                                <div class="home-chat-text">
+                                  <p id="preflight-stream-text">
+                                    Decision: <strong>BLOCK (critical, score 89/100)</strong>.
+                                    Force-pushing to protected branch <strong>main</strong> violates
+                                    project rule
+                                    <strong>"Never force-push to main or master"</strong>. Push to a
+                                    feature branch and open a pull request instead.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div
+                            class="LandingPreview-module__aN7EWG__draftReady LandingPreview-module__aN7EWG__reveal"
+                            id="preflight-ready-badge"
+                            data-tone="block"
+                            data-show="true"
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              class="terms-icon"
+                            >
+                              <circle
+                                cx="12"
+                                cy="12"
+                                r="9"
+                                stroke="currentColor"
+                                stroke-width="2"
+                              />
+                              <path
+                                d="m9 9 6 6M15 9l-6 6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                              />
+                            </svg>
+                            <span>Execution halted before git push --force</span>
+                          </div>
+                        </div>
+
+                        <div class="LandingPreview-module__aN7EWG__composer">
+                          <div class="home-composer home-composer--compact">
+                            <textarea
+                              readonly
+                              aria-label="Follow-up action"
+                              placeholder="Propose a safer branch or request human approval…"
+                            ></textarea>
+                            <div class="home-composer-actions">
+                              <div class="home-composer-tools">
+                                <span class="composer-pill-tag">git_force_push</span>
+                              </div>
+                              <button
+                                type="button"
+                                class="action-button action-button--primary action-button--compact"
+                                disabled
+                              >
+                                <span>Blocked</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="LandingPreview-module__aN7EWG__documentShell">
+                        <div class="LandingPreview-module__aN7EWG__documentToolbar">
+                          <span>.kapibara/rules.md · profile: balanced</span>
+                          <div class="LandingPreview-module__aN7EWG__statusStack">
+                            <span id="preflight-status-checking" data-show="false"
+                              >Evaluating rules…</span
+                            >
+                            <span
+                              class="LandingPreview-module__aN7EWG__saved"
+                              id="preflight-status-enforced"
+                              data-show="true"
+                            >
+                              <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                                <path
+                                  d="m5 12.5 4.5 4.5L19 7.5"
+                                  stroke="currentColor"
+                                  stroke-width="2.2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                              Policy enforced
+                            </span>
+                          </div>
+                        </div>
+
+                        <article class="contract LandingPreview-module__aN7EWG__paper">
+                          <div
+                            class="LandingPreview-module__aN7EWG__paperTitle LandingPreview-module__aN7EWG__reveal"
+                            id="preflight-doc-title"
+                            data-show="true"
+                          >
+                            <div>
+                              <h4>Preflight Gate Report</h4>
+                              <p>kapibara_preflight · kapibara_rules_check</p>
+                            </div>
+                            <span class="dashboard-status dashboard-status--block"
+                              >BLOCK · 89 / 100</span
+                            >
+                          </div>
+
+                          <div
+                            class="LandingPreview-module__aN7EWG__documentSection LandingPreview-module__aN7EWG__reveal"
+                            id="preflight-sec-1"
+                            data-show="true"
+                          >
+                            <h5>1. Classification &amp; Decision</h5>
+                            <p>
+                              Action classified as <strong>git_force_push</strong> (category:
+                              <strong>git</strong>) targeting protected branch
+                              <strong>origin/main</strong>. Binding decision:
+                              <strong>BLOCK</strong> (severity: <strong>critical</strong>).
+                            </p>
+                          </div>
+
+                          <div
+                            class="LandingPreview-module__aN7EWG__documentSection LandingPreview-module__aN7EWG__reveal"
+                            id="preflight-sec-2"
+                            data-show="true"
+                          >
+                            <h5>2. Matched Project Rules (.kapibara/rules.md)</h5>
+                            <p>
+                              Matched rule
+                              <strong>"Never force-push to main or master"</strong> (decision:
+                              <strong>block</strong>) and
+                              <strong>"Ask before deploying to production"</strong> (decision:
+                              <strong>require_approval</strong>).
+                            </p>
+                          </div>
+
+                          <div
+                            class="LandingPreview-module__aN7EWG__documentSection LandingPreview-module__aN7EWG__reveal"
+                            id="preflight-sec-3"
+                            data-show="true"
+                          >
+                            <h5>3. Detected Issues</h5>
+                            <p>
+                              <strong>[critical] git_force_push:</strong> Force push can overwrite
+                              remote commit history.<br />
+                              <strong>[high] protected_branch_write:</strong> Target branch
+                              <strong>main</strong> is protected.
+                            </p>
+                          </div>
+
+                          <div
+                            class="LandingPreview-module__aN7EWG__documentSection LandingPreview-module__aN7EWG__reveal"
+                            id="preflight-sec-4"
+                            data-show="true"
+                          >
+                            <h5>4. Safer Recommendation</h5>
+                            <p>
+                              Push to a new branch (<code>git push -u origin feat/release-v2.4</code
+                              >), open a pull request, and request explicit human approval before
+                              deploying to production.
+                            </p>
+                          </div>
+                        </article>
+
+                        <div
+                          class="LandingPreview-module__aN7EWG__documentFooter LandingPreview-module__aN7EWG__reveal"
+                          id="preflight-doc-footer"
+                          data-show="true"
+                        >
+                          <span>Fail-closed fallback: require_approval</span>
+                          <a
+                            href="#playground"
+                            class="action-button action-button--secondary action-button--compact"
+                          >
+                            Test in playground
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg class="squircle-border" aria-hidden="true" focusable="false">
+              <path></path>
+            </svg>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CARD 2: ACTION RISK & SECOND OPINION (#risk)                 -->
+        <!-- ============================================================ -->
+        <section
+          id="risk"
+          class="LandingPreview-module__aN7EWG__feature"
+          aria-labelledby="preview-risk"
+          data-preview="risk"
+          data-phase="complete"
+          data-running="true"
+          data-paused="false"
+        >
+          <div class="squircle LandingPreview-module__aN7EWG__card" data-squircle="24">
+            <div class="squircle-shadow" aria-hidden="true">
+              <div class="squircle-shadow-shape"></div>
+            </div>
+            <div class="squircle-body">
+              <header class="LandingPreview-module__aN7EWG__featureHeader">
+                <h2 class="LandingPreview-module__aN7EWG__featureHeading" id="preview-risk">
+                  Score risk and get a second opinion
+                </h2>
+                <p>
+                  Break down six deterministic risk factors from 0 to 100 and challenge high-impact
+                  plans before touching production.
+                </p>
+                <div class="preview-header-controls">
+                  <button
+                    type="button"
+                    class="action-button action-button--secondary action-button--compact LandingPreview-module__aN7EWG__playbackButton"
+                    data-toggle-preview="risk"
+                    aria-label="Pause Score risk and get a second opinion animation"
+                    aria-controls="preview-risk-animation"
+                    title="Pause animation"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      class="terms-icon"
+                      data-icon-pause
+                    >
+                      <path
+                        d="M16.95 3.25h.1c.66 0 1.24 0 1.7.06.49.07.96.22 1.34.6.38.38.53.85.6 1.34.06.46.06 1.03.06 1.7v10.1c0 .66 0 1.24-.06 1.7-.07.49-.22.96-.6 1.34-.38.38-.85.53-1.34.6-.46.06-1.03.06-1.7.06h-.1c-.66 0-1.24 0-1.7-.06-.49-.07-.96-.22-1.34-.6-.38-.38-.53-.85-.6-1.34-.06-.46-.06-1.03-.06-1.7V6.95c0-.66 0-1.24.06-1.7.07-.49.22-.96.6-1.34.38-.38.85-.53 1.34-.6.46-.06 1.03-.06 1.7-.06Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M6.95 3.25h.1c.66 0 1.24 0 1.7.06.49.07.96.22 1.34.6.38.38.53.85.6 1.34.06.46.06 1.03.06 1.7v10.1c0 .66 0 1.24-.06 1.7-.07.49-.22.96-.6 1.34-.38.38-.85.53-1.34.6-.46.06-1.03.06-1.7.06h-.1c-.66 0-1.24 0-1.7-.06-.49-.07-.96-.22-1.34-.6-.38-.38-.53-.85-.6-1.34-.06-.46-.06-1.03-.06-1.7V6.95c0-.66 0-1.24.06-1.7.07-.49.22-.96.6-1.34.38-.38.85-.53 1.34-.6.46-.06 1.03-.06 1.7-.06Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      class="terms-icon"
+                      data-icon-play
+                      hidden
+                    >
+                      <path
+                        d="M13.94 6.34c1.63.92 2.92 1.65 3.83 2.32.92.67 1.6 1.38 1.85 2.3.18.68.18 1.4 0 2.08-.25.92-.93 1.63-1.85 2.3-.91.67-2.2 1.4-3.83 2.32-1.58.9-2.91 1.65-3.92 2.08-1.01.43-1.94.65-2.84.4a3.48 3.48 0 0 1-1.75-1.03c-.66-.67-.93-1.59-1.05-2.7-.13-1.1-.13-2.53-.13-4.36v-.1c0-1.83 0-3.26.13-4.36.12-1.11.39-2.03 1.05-2.7.49-.49 1.09-.85 1.75-1.03.9-.25 1.83-.03 2.84.4 1.01.43 2.34 1.18 3.92 2.08Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </header>
+
+              <div class="landing-card LandingPreview-module__aN7EWG__preview">
+                <div
+                  id="preview-risk-animation"
+                  class="LandingPreview-module__aN7EWG__loop"
+                  data-loop-state="playing"
+                >
+                  <div
+                    class="LandingPreview-module__aN7EWG__questionWorkspace"
+                    id="risk-workspace"
+                    data-sent="true"
+                  >
+                    <div class="LandingPreview-module__aN7EWG__questionStage">
+                      <div
+                        class="LandingPreview-module__aN7EWG__intro LandingPreview-module__aN7EWG__reveal"
+                        id="risk-intro"
+                        data-show="false"
+                      >
+                        <h4>Challenge your plan before executing.</h4>
+                        <p>
+                          Skills: <code>/kapibara:action-risk</code> &amp;
+                          <code>/kapibara:second-opinion</code> · Tool:
+                          <code>kapibara_action_risk</code>
+                        </p>
+                      </div>
+
+                      <div class="LandingPreview-module__aN7EWG__messages">
+                        <div
+                          class="home-message home-message--user LandingPreview-module__aN7EWG__question"
+                          id="risk-user-msg"
+                          data-show="true"
+                        >
+                          <div class="home-chat-text">
+                            <p>
+                              <strong
+                                >Second opinion: should we run ALTER TABLE users DROP COLUMN
+                                legacy_token on prod_db right now?</strong
+                              >
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="LandingPreview-module__aN7EWG__responseStack">
+                          <div
+                            class="LandingPreview-module__aN7EWG__thinking LandingPreview-module__aN7EWG__reveal"
+                            id="risk-thinking"
+                            data-show="false"
+                          >
+                            <span class="home-opening-dots" aria-hidden="true">
+                              <span style="--dot-delay: 0ms"></span>
+                              <span style="--dot-delay: 120ms"></span>
+                              <span style="--dot-delay: 240ms"></span>
+                            </span>
+                            <span>Scoring 6 risk factors via kapibara_action_risk…</span>
+                          </div>
+
+                          <div class="home-message home-message--assistant">
+                            <div
+                              class="LandingPreview-module__aN7EWG__answerStack LandingPreview-module__aN7EWG__reveal"
+                              id="risk-answer-wrap"
+                              data-show="true"
+                            >
+                              <div class="home-chat-text LandingPreview-module__aN7EWG__measure">
+                                <p>
+                                  Verdict: <strong>DO NOT PROCEED</strong>. Kapibara returned
+                                  <strong>REQUIRE_APPROVAL (critical, score 78/100)</strong>.
+                                  Dropping a column on <strong>prod_db</strong> is irreversible
+                                  (18/20) with high destructive impact (22/25).
+                                </p>
+                              </div>
+                              <div class="home-chat-text">
+                                <p id="risk-stream-text">
+                                  Verdict: <strong>DO NOT PROCEED</strong>. Kapibara returned
+                                  <strong>REQUIRE_APPROVAL (critical, score 78/100)</strong>.
+                                  Dropping a column on <strong>prod_db</strong> is irreversible
+                                  (18/20) with high destructive impact (22/25).
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- 6-Factor Breakdown + Second Opinion Citation Card -->
+                        <div
+                          class="risk-citation-card LandingPreview-module__aN7EWG__reveal"
+                          id="risk-citation"
+                          data-show="true"
+                        >
+                          <div class="risk-factors-list">
+                            <div class="thread-meta">
+                              <strong>6-Factor Risk Score Breakdown</strong>
+                              <span>78 / 100 · critical</span>
+                            </div>
+                            <div class="risk-factor-row">
+                              <span class="risk-factor-name">destructive_impact</span>
+                              <div class="risk-factor-track">
+                                <div class="risk-factor-fill" style="width: 88%"></div>
+                              </div>
+                              <span class="risk-factor-score">22/25</span>
+                            </div>
+                            <div class="risk-factor-row">
+                              <span class="risk-factor-name">reversibility</span>
+                              <div class="risk-factor-track">
+                                <div class="risk-factor-fill" style="width: 90%"></div>
+                              </div>
+                              <span class="risk-factor-score">18/20</span>
+                            </div>
+                            <div class="risk-factor-row">
+                              <span class="risk-factor-name">sensitive_data</span>
+                              <div class="risk-factor-track">
+                                <div class="risk-factor-fill" style="width: 30%"></div>
+                              </div>
+                              <span class="risk-factor-score">6/20</span>
+                            </div>
+                            <div class="risk-factor-row">
+                              <span class="risk-factor-name">external_side_effects</span>
+                              <div class="risk-factor-track">
+                                <div class="risk-factor-fill" style="width: 80%"></div>
+                              </div>
+                              <span class="risk-factor-score">12/15</span>
+                            </div>
+                            <div class="risk-factor-row">
+                              <span class="risk-factor-name">production_impact</span>
+                              <div class="risk-factor-track">
+                                <div class="risk-factor-fill" style="width: 100%"></div>
+                              </div>
+                              <span class="risk-factor-score">10/10</span>
+                            </div>
+                            <div class="risk-factor-row">
+                              <span class="risk-factor-name">uncertainty</span>
+                              <div class="risk-factor-track">
+                                <div class="risk-factor-fill" style="width: 100%"></div>
+                              </div>
+                              <span class="risk-factor-score">10/10</span>
+                            </div>
+                          </div>
+
+                          <div class="second-opinion-box">
+                            <div>
+                              <div class="thread-meta">
+                                <strong>Second Opinion Review</strong>
+                                <span>/kapibara:second-opinion</span>
+                              </div>
+                              <p style="margin: 6px 0 0; font-size: 13px; color: #3a3733">
+                                <strong>Main concern:</strong> Live readers referencing
+                                <code>legacy_token</code> will fail immediately, and dropped column
+                                data cannot be rolled back without a snapshot restore.
+                              </p>
+                            </div>
+                            <div
+                              style="
+                                background: #fff;
+                                border: 1px solid #e7e5e0;
+                                border-radius: 10px;
+                                padding: 10px 12px;
+                                font-size: 12.5px;
+                              "
+                            >
+                              <strong>Safer alternative:</strong> Deploy application code that stops
+                              reading <code>legacy_token</code> first, verify zero queries in
+                              staging, then run the migration during a maintenance window.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="LandingPreview-module__aN7EWG__questionComposer">
+                      <div
+                        class="LandingPreview-module__aN7EWG__composer"
+                        id="risk-composer"
+                        data-sending="false"
+                      >
+                        <div class="home-composer">
+                          <textarea
+                            readonly
+                            aria-label="Second opinion question"
+                            id="risk-prompt-input"
+                            placeholder="Ask Kapibara to score an action or challenge a plan…"
+                          ></textarea>
+                          <div class="home-composer-actions">
+                            <div class="home-composer-tools">
+                              <span class="composer-pill-tag">kapibara_action_risk</span>
+                              <span class="composer-pill-tag">second-opinion</span>
+                            </div>
+                            <button
+                              type="button"
+                              class="action-button action-button--primary action-button--compact home-send-button"
+                              tabindex="-1"
+                            >
+                              <span>Score risk</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg class="squircle-border" aria-hidden="true" focusable="false">
+              <path></path>
+            </svg>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CARD 3: CONSISTENCY & SENSITIVE DATA CHECK (#verify)         -->
+        <!-- ============================================================ -->
+        <section
+          id="verify"
+          class="LandingPreview-module__aN7EWG__feature"
+          aria-labelledby="preview-verify"
+          data-preview="verify"
+          data-phase="resolved"
+          data-running="true"
+          data-paused="false"
+        >
+          <div class="squircle LandingPreview-module__aN7EWG__card" data-squircle="24">
+            <div class="squircle-shadow" aria-hidden="true">
+              <div class="squircle-shadow-shape"></div>
+            </div>
+            <div class="squircle-body">
+              <header class="LandingPreview-module__aN7EWG__featureHeader">
+                <h2 class="LandingPreview-module__aN7EWG__featureHeading" id="preview-verify">
+                  Compare sources and redact secrets
+                </h2>
+                <p>
+                  Catch conflicting amounts, dates, and versions across files, and strip credentials
+                  or prompt injections before outbound calls.
+                </p>
+                <div class="preview-header-controls">
+                  <button
+                    type="button"
+                    class="action-button action-button--secondary action-button--compact LandingPreview-module__aN7EWG__playbackButton"
+                    data-toggle-preview="verify"
+                    aria-label="Pause Compare sources and redact secrets animation"
+                    aria-controls="preview-verify-animation"
+                    title="Pause animation"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      class="terms-icon"
+                      data-icon-pause
+                    >
+                      <path
+                        d="M16.95 3.25h.1c.66 0 1.24 0 1.7.06.49.07.96.22 1.34.6.38.38.53.85.6 1.34.06.46.06 1.03.06 1.7v10.1c0 .66 0 1.24-.06 1.7-.07.49-.22.96-.6 1.34-.38.38-.85.53-1.34.6-.46.06-1.03.06-1.7.06h-.1c-.66 0-1.24 0-1.7-.06-.49-.07-.96-.22-1.34-.6-.38-.38-.53-.85-.6-1.34-.06-.46-.06-1.03-.06-1.7V6.95c0-.66 0-1.24.06-1.7.07-.49.22-.96.6-1.34.38-.38.85-.53 1.34-.6.46-.06 1.03-.06 1.7-.06Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M6.95 3.25h.1c.66 0 1.24 0 1.7.06.49.07.96.22 1.34.6.38.38.53.85.6 1.34.06.46.06 1.03.06 1.7v10.1c0 .66 0 1.24-.06 1.7-.07.49-.22.96-.6 1.34-.38.38-.85.53-1.34.6-.46.06-1.03.06-1.7.06h-.1c-.66 0-1.24 0-1.7-.06-.49-.07-.96-.22-1.34-.6-.38-.38-.53-.85-.6-1.34-.06-.46-.06-1.03-.06-1.7V6.95c0-.66 0-1.24.06-1.7.07-.49.22-.96.6-1.34.38-.38.85-.53 1.34-.6.46-.06 1.03-.06 1.7-.06Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      class="terms-icon"
+                      data-icon-play
+                      hidden
+                    >
+                      <path
+                        d="M13.94 6.34c1.63.92 2.92 1.65 3.83 2.32.92.67 1.6 1.38 1.85 2.3.18.68.18 1.4 0 2.08-.25.92-.93 1.63-1.85 2.3-.91.67-2.2 1.4-3.83 2.32-1.58.9-2.91 1.65-3.92 2.08-1.01.43-1.94.65-2.84.4a3.48 3.48 0 0 1-1.75-1.03c-.66-.67-.93-1.59-1.05-2.7-.13-1.1-.13-2.53-.13-4.36v-.1c0-1.83 0-3.26.13-4.36.12-1.11.39-2.03 1.05-2.7.49-.49 1.09-.85 1.75-1.03.9-.25 1.83-.03 2.84.4 1.01.43 2.34 1.18 3.92 2.08Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </header>
+
+              <div class="landing-card LandingPreview-module__aN7EWG__preview">
+                <div
+                  id="preview-verify-animation"
+                  class="LandingPreview-module__aN7EWG__loop"
+                  data-loop-state="playing"
+                >
+                  <div class="LandingPreview-module__aN7EWG__commentWorkspace">
+                    <div class="LandingPreview-module__aN7EWG__commentDocument">
+                      <div class="LandingPreview-module__aN7EWG__documentToolbar">
+                        <span>Outbound settlement payload · invoice.json vs email.txt</span>
+                        <span
+                          class="LandingPreview-module__aN7EWG__saved LandingPreview-module__aN7EWG__reveal"
+                          id="verify-saved-badge"
+                          data-show="true"
+                        >
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="m5 12.5 4.5 4.5L19 7.5"
+                              stroke="currentColor"
+                              stroke-width="2.2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                          Secrets redacted &amp; conflict resolved
+                        </span>
+                      </div>
+
+                      <article
+                        class="contract LandingPreview-module__aN7EWG__paper LandingPreview-module__aN7EWG__commentPaper"
+                      >
+                        <div class="LandingPreview-module__aN7EWG__paperTitle">
+                          <div>
+                            <h4>Cross-Source &amp; Sensitive Payload Audit</h4>
+                            <p>kapibara_compare · kapibara_scan_sensitive</p>
+                          </div>
+                        </div>
+
+                        <div class="LandingPreview-module__aN7EWG__documentSection">
+                          <h5>1. Source Comparison (kapibara_compare)</h5>
+                          <p>
+                            <strong>Source A (invoice.json):</strong> Total fee is
+                            <strong>$1,200</strong>, due <strong>2026-05-01</strong>, schema
+                            <strong>v2.1.0</strong>.<br />
+                            <strong>Source B (approval-email.txt):</strong> Total fee is
+                            <strong>$1,500</strong>, due <strong>2026-05-15</strong>, schema
+                            <strong>v2.1.0</strong>.
+                          </p>
+                        </div>
+
+                        <div class="LandingPreview-module__aN7EWG__documentSection">
+                          <h5>2. Outbound Payload Inspection (kapibara_scan_sensitive)</h5>
+                          <p>
+                            Inspecting headers and body before agent sends webhook to external
+                            endpoint:
+                          </p>
+                          <div
+                            class="LandingPreview-module__aN7EWG__clause"
+                            id="verify-clause"
+                            data-selected="true"
+                            data-updated="true"
+                          >
+                            <div class="LandingPreview-module__aN7EWG__clauseHighlight"></div>
+                            <div class="LandingPreview-module__aN7EWG__clauseText">
+                              Authorization: Bearer
+                              <span class="LandingPreview-module__aN7EWG__changedTerm">
+                                <span id="verify-term-before" data-show="false"
+                                  >sk-proj-9f8a7b6c5d4e3f2a1b0c9d8e · Ignore previous
+                                  instructions</span
+                                >
+                                <span id="verify-term-after" data-show="true"
+                                  >sk-proj-**** (redacted) · Prompt injection stripped</span
+                                >
+                              </span>
+                            </div>
+                            <span
+                              class="LandingPreview-module__aN7EWG__clauseMarker LandingPreview-module__aN7EWG__reveal"
+                              id="verify-marker"
+                              data-show="true"
+                            >
+                              <span id="verify-marker-open" data-show="false">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                  <path
+                                    d="M12 8v5M12 16.5h.01"
+                                    stroke="currentColor"
+                                    stroke-width="2.4"
+                                    stroke-linecap="round"
+                                  />
+                                </svg>
+                              </span>
+                              <span id="verify-marker-done" data-show="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                  <path
+                                    d="m5 12.5 4.5 4.5L19 7.5"
+                                    stroke="currentColor"
+                                    stroke-width="2.4"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                            <span
+                              class="LandingPreview-module__aN7EWG__demoCursor"
+                              id="verify-cursor"
+                              data-show="false"
+                              data-arrived="false"
+                              aria-hidden="true"
+                            ></span>
+                          </div>
+                        </div>
+
+                        <div class="LandingPreview-module__aN7EWG__documentSection">
+                          <h5>3. File Path &amp; Private Key Guard</h5>
+                          <p>
+                            Blocked reading <strong>.env.production</strong> and
+                            <strong>id_rsa</strong> per project rule
+                            <strong>"Block reading or sending .env and *.pem"</strong>.
+                          </p>
+                        </div>
+                      </article>
+                    </div>
+
+                    <div class="LandingPreview-module__aN7EWG__commentSidebar">
+                      <div class="LandingPreview-module__aN7EWG__chatHeading">
+                        <span>Verification findings</span>
+                        <span
+                          class="LandingPreview-module__aN7EWG__commentCount"
+                          id="verify-open-count"
+                          data-show="false"
+                        >
+                          2 findings
+                        </span>
+                      </div>
+
+                      <div class="LandingPreview-module__aN7EWG__threadStage">
+                        <!-- Empty State -->
+                        <div
+                          class="LandingPreview-module__aN7EWG__commentEmpty LandingPreview-module__aN7EWG__reveal"
+                          id="verify-empty"
+                          data-show="false"
+                        >
+                          <img
+                            class="kapibara-badge-logo"
+                            src="./assets/logo.png"
+                            alt=""
+                            width="28"
+                            height="28"
+                          />
+                          <p>
+                            Scanning sources and outbound payload.<br />
+                            Findings appear right here.
+                          </p>
+                        </div>
+
+                        <!-- Composing State -->
+                        <div
+                          class="LandingPreview-module__aN7EWG__commentCompose LandingPreview-module__aN7EWG__reveal"
+                          id="verify-compose"
+                          data-show="false"
+                        >
+                          <div class="LandingPreview-module__aN7EWG__cardRail">
+                            <span class="rail-title"
+                              >Selected · Outbound Payload &amp; Invoice</span
+                            >
+                            <p class="rail-snippet">Bearer sk-proj-9f8a… · $1,200 vs $1,500</p>
+                          </div>
+                          <textarea
+                            readonly
+                            id="verify-compose-text"
+                            aria-label="Scanner finding"
+                          ></textarea>
+                          <div class="LandingPreview-module__aN7EWG__commentSend">
+                            <span>kapibara_scan_sensitive</span>
+                            <button
+                              type="button"
+                              class="action-button action-button--primary action-button--compact"
+                              tabindex="-1"
+                            >
+                              <span>Flag &amp; redact</span>
+                            </button>
+                          </div>
+                        </div>
+
+                        <!-- Thread State -->
+                        <div
+                          class="thread LandingPreview-module__aN7EWG__thread LandingPreview-module__aN7EWG__reveal"
+                          id="verify-thread"
+                          data-show="true"
+                        >
+                          <div class="LandingPreview-module__aN7EWG__cardRail">
+                            <span class="rail-title">Detected · Secret + Amount Mismatch</span>
+                            <p class="rail-snippet">
+                              openai_api_key (critical) · prompt_injection (high)
+                            </p>
+                          </div>
+
+                          <div class="thread-meta">
+                            <strong>kapibara_compare <span>&amp; scan_sensitive</span></strong>
+                            <span>Just now</span>
+                          </div>
+                          <div class="thread-body">
+                            Amount conflict detected: <strong>invoice.json ($1,200)</strong> vs
+                            <strong>email.txt ($1,500)</strong>. Outbound header contains live
+                            OpenAI key and prompt injection.
+                          </div>
+
+                          <div class="LandingPreview-module__aN7EWG__replyStage">
+                            <div
+                              class="LandingPreview-module__aN7EWG__thinking LandingPreview-module__aN7EWG__reveal"
+                              id="verify-reply-thinking"
+                              data-show="false"
+                            >
+                              <span class="home-opening-dots" aria-hidden="true">
+                                <span style="--dot-delay: 0ms"></span>
+                                <span style="--dot-delay: 120ms"></span>
+                                <span style="--dot-delay: 240ms"></span>
+                              </span>
+                              <span>Redacting credentials &amp; stripping injection…</span>
+                            </div>
+
+                            <div
+                              class="reply LandingPreview-module__aN7EWG__reveal"
+                              id="verify-reply-box"
+                              data-show="true"
+                            >
+                              <div class="thread-meta">
+                                <strong
+                                  ><img
+                                    class="kapibara-inline-logo"
+                                    src="./assets/logo.png"
+                                    alt=""
+                                    width="16"
+                                    height="16"
+                                  />Kapibara Redactor <span>sensitive-data-check</span></strong
+                                >
+                                <span>Just now</span>
+                              </div>
+                              <div class="LandingPreview-module__aN7EWG__answerStack">
+                                <div class="thread-body LandingPreview-module__aN7EWG__measure">
+                                  Redacted sk-proj-**** in place, stripped untrusted prompt
+                                  injection, and held settlement until the $1,200 vs $1,500 invoice
+                                  conflict is confirmed.
+                                </div>
+                                <div class="thread-body" id="verify-reply-text">
+                                  Redacted sk-proj-**** in place, stripped untrusted prompt
+                                  injection, and held settlement until the $1,200 vs $1,500 invoice
+                                  conflict is confirmed.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div
+                            class="LandingPreview-module__aN7EWG__changeNote LandingPreview-module__aN7EWG__reveal"
+                            id="verify-change-note"
+                            data-show="true"
+                          >
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                              <path
+                                d="m5 12.5 4.5 4.5L19 7.5"
+                                stroke="currentColor"
+                                stroke-width="2.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                            <span>Payload sanitized to <strong>sk-proj-****</strong>.</span>
+                          </div>
+
+                          <div class="LandingPreview-module__aN7EWG__resolveStack">
+                            <div id="verify-resolve-btn-wrap" data-show="false">
+                              <button
+                                type="button"
+                                class="action-button action-button--secondary action-button--compact"
+                                tabindex="-1"
+                              >
+                                <span>Approve sanitized payload</span>
+                              </button>
+                            </div>
+                            <div
+                              class="LandingPreview-module__aN7EWG__resolved"
+                              id="verify-resolved-label"
+                              data-show="true"
+                            >
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path
+                                  d="m5 12.5 4.5 4.5L19 7.5"
+                                  stroke="currentColor"
+                                  stroke-width="2.3"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                              <span>Sanitized &amp; verified</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg class="squircle-border" aria-hidden="true" focusable="false">
+              <path></path>
+            </svg>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- LIVE INTERACTIVE PLAYGROUND (#playground)                    -->
+      <!-- ============================================================ -->
+      <section class="landing-section landing-col" id="playground">
+        <div class="section-heading-block">
+          <span class="section-eyebrow">Interactive Inspector</span>
+          <h2>Test Kapibara preflight, risk, and scanners live</h2>
+          <p>
+            Pick a preset agent scenario or edit the action, target, profile, and payload below to
+            run Kapibara’s deterministic engine.
+          </p>
+        </div>
+
+        <div class="playground-card">
+          <div class="playground-toolbar">
+            <div class="playground-presets" role="group" aria-label="Preset scenarios">
+              <button
+                type="button"
+                class="preset-chip"
+                data-preset="force-push"
+                aria-pressed="true"
+              >
+                Force push main
+              </button>
+              <button
+                type="button"
+                class="preset-chip"
+                data-preset="prod-deploy"
+                aria-pressed="false"
+              >
+                Deploy production
+              </button>
+              <button
+                type="button"
+                class="preset-chip"
+                data-preset="secret-leak"
+                aria-pressed="false"
+              >
+                Secret + injection leak
+              </button>
+              <button
+                type="button"
+                class="preset-chip"
+                data-preset="compare-conflict"
+                aria-pressed="false"
+              >
+                Invoice vs email conflict
+              </button>
+              <button
+                type="button"
+                class="preset-chip"
+                data-preset="clean-build"
+                aria-pressed="false"
+              >
+                Delete build/ folder
+              </button>
+            </div>
+
+            <button
+              type="button"
+              class="action-button action-button--brand action-button--compact"
+              id="run-playground-btn"
+            >
+              <span>Evaluate now</span>
+            </button>
+          </div>
+
+          <div class="playground-grid">
+            <div class="playground-inputs">
+              <div class="field-group">
+                <label for="pg-tool">MCP Tool / Skill</label>
+                <select id="pg-tool">
+                  <option value="preflight">kapibara_preflight (/kapibara:preflight-check)</option>
+                  <option value="risk">kapibara_action_risk (/kapibara:action-risk)</option>
+                  <option value="scan">
+                    kapibara_scan_sensitive (/kapibara:sensitive-data-check)
+                  </option>
+                  <option value="compare">kapibara_compare (/kapibara:consistency-check)</option>
+                  <option value="rules">kapibara_rules_check (.kapibara/rules.md)</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="pg-action">Action / Intent</label>
+                <input id="pg-action" type="text" value="git push --force" />
+              </div>
+
+              <div class="field-group">
+                <label for="pg-target">Target (branch, path, URL, or Source A)</label>
+                <input id="pg-target" type="text" value="origin/main" />
+              </div>
+
+              <div class="field-group">
+                <label for="pg-profile">Policy Profile</label>
+                <select id="pg-profile">
+                  <option value="balanced" selected>balanced (default)</option>
+                  <option value="developer">developer (local build &amp; git friendly)</option>
+                  <option value="strict">strict (maximum protection)</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="pg-content">Content / Command / Source B</label>
+                <textarea id="pg-content" rows="4">git push --force origin main</textarea>
+              </div>
+            </div>
+
+            <div class="playground-output">
+              <div class="output-verdict-banner">
+                <div>
+                  <span
+                    style="font-size: 11.5px; color: #6f6a63; font-family: var(--font-geist-mono)"
+                    id="pg-result-tool"
+                  >
+                    kapibara_preflight · git_force_push
+                  </span>
+                  <h3
+                    style="font-size: 16px; color: #161512; margin-top: 2px"
+                    id="pg-result-summary"
+                  >
+                    Force-pushing to protected branch main is blocked.
+                  </h3>
+                </div>
+                <span class="dashboard-status dashboard-status--block" id="pg-result-badge">
+                  BLOCK · 89/100
+                </span>
+              </div>
+
+              <pre class="output-json" id="pg-result-json" aria-live="polite"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ALL 6 KAPIBARA SKILLS & 5 MCP TOOLS (#skills)                -->
+      <!-- ============================================================ -->
+      <section class="landing-section landing-col" id="skills">
+        <div class="section-heading-block">
+          <span class="section-eyebrow">Bundled Skills &amp; MCP Tools</span>
+          <h2>Six agent skills backed by five read-only MCP tools</h2>
+          <p>
+            Every Kapibara tool sets <code>readOnlyHint: true</code> and
+            <code>destructiveHint: false</code>. Kapibara never executes shell commands or mutates
+            files on your machine.
+          </p>
+        </div>
+
+        <div class="landing-plans">
+          <article class="landing-card landing-plan">
+            <span class="skill-cmd-pill">/kapibara:preflight-check</span>
+            <h3>Preflight Check</h3>
+            <p>
+              Evaluates shell commands, file deletions, git history rewrites, and deploys before
+              execution. Returns <code>allow</code>, <code>warn</code>,
+              <code>require_approval</code>, or <code>block</code>.
+            </p>
+            <div class="landing-plan-meta">
+              <span>kapibara_preflight</span>
+              <span>Binding gate</span>
+            </div>
+          </article>
+
+          <article class="landing-card landing-plan">
+            <span class="skill-cmd-pill">/kapibara:action-risk</span>
+            <h3>Action Risk</h3>
+            <p>
+              Scores any proposed action from 0 to 100 across 6 deterministic factors: destructive
+              impact, reversibility, sensitive data, external side effects, production impact, and
+              uncertainty.
+            </p>
+            <div class="landing-plan-meta">
+              <span>kapibara_action_risk</span>
+              <span>0–100 score</span>
+            </div>
+          </article>
+
+          <article class="landing-card landing-plan">
+            <span class="skill-cmd-pill">/kapibara:second-opinion</span>
+            <h3>Second Opinion</h3>
+            <p>
+              Challenges risky migrations, force-pushes, or production changes with a structured
+              review: <code>AGREE</code>, <code>AGREE WITH CHANGES</code>, or
+              <code>DO NOT PROCEED</code>.
+            </p>
+            <div class="landing-plan-meta">
+              <span>preflight + action_risk</span>
+              <span>Plan critique</span>
+            </div>
+          </article>
+
+          <article class="landing-card landing-plan">
+            <span class="skill-cmd-pill">/kapibara:consistency-check</span>
+            <h3>Consistency Check</h3>
+            <p>
+              Compares two text sources (invoices vs emails, configs vs docs, lockfiles vs specs) to
+              detect conflicting currency amounts, dates, versions, and contradictory statements.
+            </p>
+            <div class="landing-plan-meta">
+              <span>kapibara_compare</span>
+              <span>Cross-source diff</span>
+            </div>
+          </article>
+
+          <article class="landing-card landing-plan">
+            <span class="skill-cmd-pill">/kapibara:sensitive-data-check</span>
+            <h3>Sensitive Data Check</h3>
+            <p>
+              Scans text and file paths for API keys, tokens, PEM private keys, PII, and
+              prompt-injection patterns, returning masked previews (<code>sk-proj-****</code>) and
+              redactions.
+            </p>
+            <div class="landing-plan-meta">
+              <span>kapibara_scan_sensitive</span>
+              <span>Auto-redaction</span>
+            </div>
+          </article>
+
+          <article class="landing-card landing-plan">
+            <span class="skill-cmd-pill">/kapibara:setup</span>
+            <h3>Agent &amp; Rules Setup</h3>
+            <p>
+              Connects the <code>@kapibara/mcp</code> server to Claude Code, Codex, Cursor,
+              OpenCode, or Claude Desktop and enforces plain-English rules in
+              <code>.kapibara/rules.md</code>.
+            </p>
+            <div class="landing-plan-meta">
+              <span>kapibara_rules_check</span>
+              <span>Plain-English rules</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Policy Profiles Table (mirrors terms.so .landing-table) -->
+        <table class="landing-table" id="rules">
+          <colgroup>
+            <col style="width: 28%" />
+            <col style="width: 24%" />
+            <col style="width: 24%" />
+            <col style="width: 24%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Action / Scenario</th>
+              <th><code>developer</code> profile</th>
+              <th><code>balanced</code> (default)</th>
+              <th><code>strict</code> profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>git push --force origin main</code></td>
+              <td><strong>BLOCK</strong> (protected branch)</td>
+              <td><strong>BLOCK</strong> (protected branch)</td>
+              <td><strong>BLOCK</strong> (protected branch)</td>
+            </tr>
+            <tr>
+              <td><code>rm -rf dist/ build/</code> (workspace artifacts)</td>
+              <td><strong>ALLOW</strong> (safe build cleanup)</td>
+              <td><strong>WARN</strong> (verify path)</td>
+              <td><strong>REQUIRE_APPROVAL</strong></td>
+            </tr>
+            <tr>
+              <td><code>deploy</code> or <code>ALTER TABLE</code> in production</td>
+              <td><strong>REQUIRE_APPROVAL</strong></td>
+              <td><strong>REQUIRE_APPROVAL</strong></td>
+              <td><strong>BLOCK</strong> / <strong>REQUIRE_APPROVAL</strong></td>
+            </tr>
+            <tr>
+              <td>Outbound payload containing <code>sk_live_…</code> or <code>.env</code></td>
+              <td><strong>BLOCK</strong> + Redact</td>
+              <td><strong>BLOCK</strong> + Redact</td>
+              <td><strong>BLOCK</strong> + Redact</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- FOOTER (exact terms.so .landing-footer.landing-col)          -->
+      <!-- ============================================================ -->
+      <footer class="landing-footer landing-col">
+        <div class="landing-footer-brand">
+          <a aria-label="Kapibara home" class="landing-mark" href="#top">
+            <img
+              class="landing-mark-logo"
+              src="./assets/logo.png"
+              alt="Kapibara logo"
+              width="32"
+              height="32"
+            />
+            <span class="landing-mark-word">Kapibara</span>
+          </a>
+          <p class="landing-footer-description">
+            Kapibara is a lightweight verification and risk-check layer for AI agents. Before an
+            agent deletes files, force-pushes, deploys to production, or sends sensitive payloads
+            externally, Kapibara evaluates project rules in
+            <code>.kapibara/rules.md</code>, scores risk across six deterministic factors, and
+            returns structured decisions over MCP stdio.
+          </p>
+        </div>
+
+        <nav aria-label="Skills" class="landing-footer-group">
+          <h2 class="landing-footer-label">Skills &amp; Tools</h2>
+          <ul class="landing-footer-links">
+            <li><a class="landing-footer-link" href="#preflight">preflight-check</a></li>
+            <li><a class="landing-footer-link" href="#risk">action-risk</a></li>
+            <li><a class="landing-footer-link" href="#risk">second-opinion</a></li>
+            <li><a class="landing-footer-link" href="#verify">consistency-check</a></li>
+            <li><a class="landing-footer-link" href="#verify">sensitive-data-check</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Setup" class="landing-footer-group">
+          <h2 class="landing-footer-label">Agent Setup</h2>
+          <ul class="landing-footer-links">
+            <li>
+              <a class="landing-footer-link" href="#top" data-select-agent="claude-code"
+                >Claude Code</a
+              >
+            </li>
+            <li>
+              <a class="landing-footer-link" href="#top" data-select-agent="codex">OpenAI Codex</a>
+            </li>
+            <li>
+              <a class="landing-footer-link" href="#top" data-select-agent="cursor">Cursor</a>
+            </li>
+            <li>
+              <a class="landing-footer-link" href="#top" data-select-agent="opencode">OpenCode</a>
+            </li>
+            <li>
+              <a class="landing-footer-link" href="#top" data-select-agent="claude-desktop"
+                >Claude Desktop</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

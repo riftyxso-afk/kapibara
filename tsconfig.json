@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@kapibara/core": ["packages/core/src/index.ts"],
+      "@kapibara/policy": ["packages/policy/src/index.ts"],
+      "@kapibara/scanners": ["packages/scanners/src/index.ts"],
+      "@kapibara/mcp": ["packages/mcp/src/index.ts"]
+    }
+  },
+  "include": [
+    "packages/*/src/**/*.ts",
+    "packages/*/tests/**/*.ts",
+    "evals/**/*.ts",
+    "examples/**/*.ts",
+    "web/**/*.ts",
+    "vitest.config.ts"
+  ]
+}

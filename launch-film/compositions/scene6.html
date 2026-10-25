@@ -1,0 +1,349 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "GeistMono";
+      src: url("assets/fonts/GeistMono-Latin.woff2") format("woff2");
+      font-weight: 400 600;
+      font-style: normal;
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "ABCDiatype", sans-serif;
+      background: #0b1530;
+    }
+
+    .s6-stage {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    /* Part A: Starry Night Desktop with macOS Top-Right Notifications (matching reference frames 25s-27s) */
+    .s6-desktop {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 78%, rgba(114, 152, 248, 0.35), transparent 45%),
+        radial-gradient(circle at 75% 88%, rgba(68, 108, 212, 0.28), transparent 50%),
+        linear-gradient(180deg, #070e22 0%, #102048 55%, #1d356b 100%);
+    }
+
+    /* Subtle night city silhouette & stars */
+    .s6-stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(#ffffff 1.2px, transparent 1.2px),
+        radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+      background-size: 90px 90px, 54px 54px;
+      background-position: 0 0, 27px 27px;
+      opacity: 0.45;
+    }
+
+    .s6-menubar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 42px;
+      background: rgba(10, 18, 40, 0.55);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 36px;
+      gap: 24px;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .s6-desktop-stack {
+      position: absolute;
+      top: 64px;
+      right: 42px;
+      width: 640px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .s6-mac-toast {
+      background: rgba(214, 222, 236, 0.86);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 24px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 18px 42px rgba(4, 10, 26, 0.38);
+      opacity: 0;
+    }
+
+    .s6-toast-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      background: #ffffff url("assets/logo.png") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .s6-toast-body {
+      flex: 1;
+    }
+
+    .s6-toast-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 21px;
+      font-weight: 500;
+      color: #12161f;
+      margin-bottom: 4px;
+    }
+
+    .s6-toast-time {
+      font-size: 16px;
+      color: #5b6475;
+      font-weight: 400;
+    }
+
+    .s6-toast-desc {
+      font-size: 19px;
+      color: #262d3d;
+      line-height: 1.28;
+    }
+
+    /* Part B: iPhone Lockscreen Stack on Light Studio Backdrop (matching reference frames 28s-31s) */
+    .s6-phone-world {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, #e5e5e7 0%, #f7f7f8 72%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+
+    .s6-iphone {
+      position: relative;
+      width: 820px;
+      height: 980px;
+      margin-top: -120px;
+      background:
+        radial-gradient(circle at 50% 30%, #132818 0%, #050a06 75%);
+      border: 16px solid #2b2c2e;
+      border-radius: 78px;
+      box-shadow:
+        0 48px 110px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.22);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 34px;
+    }
+
+    .s6-home-bar {
+      position: absolute;
+      bottom: 24px;
+      width: 240px;
+      height: 8px;
+      border-radius: 999px;
+      background: #ffffff;
+    }
+
+    .s6-ios-stack {
+      position: relative;
+      width: 710px;
+      height: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s6-ios-card {
+      position: absolute;
+      width: 700px;
+      background: rgba(232, 234, 238, 0.92);
+      backdrop-filter: blur(22px);
+      border-radius: 28px;
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.38);
+      opacity: 0;
+    }
+  </style>
+
+  <div data-hf-id="hf-zrbt" id="root" data-composition-id="scene6" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-veiy" id="s6-stage" class="clip s6-stage" data-start="0" data-duration="5.5">
+      <!-- Part A: Night Desktop Notification Stack (0.0s - 2.7s) -->
+      <div data-hf-id="hf-um0k" id="s6-desktop" class="s6-desktop" data-layout-allow-overlap>
+        <div data-hf-id="hf-br6q" class="s6-stars" data-layout-ignore></div>
+        <div data-hf-id="hf-6yvs" class="s6-menubar">
+          <span data-hf-id="hf-gh65">Wi-Fi</span>
+          <span data-hf-id="hf-jp3r">MCP: Active</span>
+          <span data-hf-id="hf-oq0o">Mon Oct 25 &nbsp; 10:49 AM</span>
+        </div>
+
+        <div data-hf-id="hf-7dnb" class="s6-desktop-stack" data-layout-allow-overlap>
+          <!-- Toast 1 -->
+          <div data-hf-id="hf-vuie" id="s6-toast-1" class="s6-mac-toast">
+            <div data-hf-id="hf-9kr5" class="s6-toast-icon"></div>
+            <div data-hf-id="hf-dw4m" class="s6-toast-body">
+              <div data-hf-id="hf-fh94" class="s6-toast-head">
+                <span data-hf-id="hf-v19l">Kapibara Preflight</span>
+                <span data-hf-id="hf-bsu6" class="s6-toast-time">now</span>
+              </div>
+              <div data-hf-id="hf-ntir" class="s6-toast-desc">BLOCK · Halted git push --force origin main (85/100)</div>
+            </div>
+          </div>
+
+          <!-- Toast 2 -->
+          <div data-hf-id="hf-rwed" id="s6-toast-2" class="s6-mac-toast">
+            <div data-hf-id="hf-qfnp" class="s6-toast-icon"></div>
+            <div data-hf-id="hf-8sbu" class="s6-toast-body">
+              <div data-hf-id="hf-2ovk" class="s6-toast-head">
+                <span data-hf-id="hf-6su1">Kapibara Scanners</span>
+                <span data-hf-id="hf-l1gi" class="s6-toast-time">now</span>
+              </div>
+              <div data-hf-id="hf-uavh" class="s6-toast-desc">Redacted sk_live_****w8Yn before outbound webhook</div>
+            </div>
+          </div>
+
+          <!-- Toast 3 -->
+          <div data-hf-id="hf-r4qk" id="s6-toast-3" class="s6-mac-toast">
+            <div data-hf-id="hf-rmks" class="s6-toast-icon"></div>
+            <div data-hf-id="hf-96mv" class="s6-toast-body">
+              <div data-hf-id="hf-1hyh" class="s6-toast-head">
+                <span data-hf-id="hf-3vtt">Kapibara Compare</span>
+                <span data-hf-id="hf-lfrj" class="s6-toast-time">now</span>
+              </div>
+              <div data-hf-id="hf-civb" class="s6-toast-desc">
+                Caught $1,200 vs $1,500 mismatch across invoice &amp; email
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part B: iPhone Lockscreen Stack (2.7s - 5.5s) -->
+      <div data-hf-id="hf-dm3q" id="s6-phone-world" class="s6-phone-world" data-layout-allow-overlap>
+        <div data-hf-id="hf-3ogv" class="s6-iphone" data-layout-allow-overlap>
+          <div data-hf-id="hf-klum" class="s6-ios-stack" data-layout-allow-overlap>
+            <!-- Bottom stacked card -->
+            <div data-hf-id="hf-i18b" id="s6-ios-3" class="s6-ios-card">
+              <div data-hf-id="hf-r89r" class="s6-toast-icon"></div>
+              <div data-hf-id="hf-9kxw" class="s6-toast-body">
+                <div data-hf-id="hf-1w9i" class="s6-toast-head">
+                  <span data-hf-id="hf-w1hk">Kapibara Skills</span>
+                  <span data-hf-id="hf-rw0u" class="s6-toast-time">2m ago</span>
+                </div>
+                <div data-hf-id="hf-utkk" class="s6-toast-desc">Ready for Claude Code, Codex, Cursor &amp; OpenCode</div>
+              </div>
+            </div>
+
+            <!-- Middle stacked card -->
+            <div data-hf-id="hf-e34a" id="s6-ios-2" class="s6-ios-card">
+              <div data-hf-id="hf-sf6u" class="s6-toast-icon"></div>
+              <div data-hf-id="hf-9z8x" class="s6-toast-body">
+                <div data-hf-id="hf-0pcf" class="s6-toast-head">
+                  <span data-hf-id="hf-gsf0">Kapibara Policy</span>
+                  <span data-hf-id="hf-sa5l" class="s6-toast-time">1m ago</span>
+                </div>
+                <div data-hf-id="hf-qoiu" class="s6-toast-desc">Protected ./backups/prod-2026.sql from deletion</div>
+              </div>
+            </div>
+
+            <!-- Top stacked card -->
+            <div data-hf-id="hf-a509" id="s6-ios-1" class="s6-ios-card">
+              <div data-hf-id="hf-s0vt" class="s6-toast-icon"></div>
+              <div data-hf-id="hf-adjy" class="s6-toast-body">
+                <div data-hf-id="hf-13ng" class="s6-toast-head">
+                  <span data-hf-id="hf-psa1">Kapibara Guardian</span>
+                  <span data-hf-id="hf-lu2k" class="s6-toast-time">now</span>
+                </div>
+                <div data-hf-id="hf-6ljy" class="s6-toast-desc">
+                  Zero unverified destructive actions reached production
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-y1ug" class="s6-home-bar" data-layout-ignore></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Part A: Desktop notifications slide in from right (0.15s, 0.75s, 1.35s)
+    tl.fromTo(
+      "#s6-toast-1",
+      { x: 120, opacity: 0, scale: 0.94 },
+      { x: 0, opacity: 1, scale: 1, duration: 0.36, ease: "back.out(1.5)" },
+      0.15,
+    );
+    tl.fromTo(
+      "#s6-toast-2",
+      { x: 120, opacity: 0, scale: 0.94 },
+      { x: 0, opacity: 1, scale: 1, duration: 0.36, ease: "back.out(1.5)" },
+      0.75,
+    );
+    tl.fromTo(
+      "#s6-toast-3",
+      { x: 120, opacity: 0, scale: 0.94 },
+      { x: 0, opacity: 1, scale: 1, duration: 0.36, ease: "back.out(1.5)" },
+      1.35,
+    );
+
+    // Cut to Part B: Phone lockscreen world at 2.65s
+    tl.set("#s6-phone-world", { opacity: 1 }, 2.65);
+    tl.fromTo(
+      "#s6-ios-3",
+      { y: 40, scale: 0.86, opacity: 0 },
+      { y: 112, scale: 0.9, opacity: 0.85, duration: 0.34, ease: "back.out(1.5)" },
+      2.72,
+    );
+    tl.fromTo(
+      "#s6-ios-2",
+      { y: 20, scale: 0.9, opacity: 0 },
+      { y: 56, scale: 0.95, opacity: 0.92, duration: 0.36, ease: "back.out(1.5)" },
+      3.25,
+    );
+    tl.fromTo(
+      "#s6-ios-1",
+      { y: -18, scale: 0.92, opacity: 0 },
+      { y: 0, scale: 1, opacity: 1, duration: 0.38, ease: "back.out(1.6)" },
+      3.8,
+    );
+
+    window.__timelines["scene6"] = tl;
+  </script>
+</template>

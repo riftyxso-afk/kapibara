@@ -1,0 +1,15 @@
+{
+  "name": "deploy to production",
+  "description": "Production deployment requires approval and matches the production rule.",
+  "input": {
+    "action": "deploy",
+    "target": "production"
+  },
+  "expect": {
+    "decision": "require_approval",
+    "action": "deploy_production",
+    "risk": "high",
+    "issues": ["production_deployment"],
+    "matchedRules": ["ask-before-production-deployments"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "action": "upload file",
+  "target": "reports/q3-summary.txt",
+  "intent": "Send the quarterly summary to the external auditor.",
+  "context": {
+    "environment": "production",
+    "external": true,
+    "metadata": {
+      "content": "The attached summary contains quarterly totals."
+    }
+  },
+  "files": ["reports/q3-summary.txt"],
+  "scanTarget": true
+}

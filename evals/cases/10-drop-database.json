@@ -1,0 +1,15 @@
+{
+  "name": "drop a production database",
+  "description": "Dropping a database is destructive and requires approval.",
+  "input": {
+    "action": "drop database",
+    "target": "production"
+  },
+  "expect": {
+    "decision": "require_approval",
+    "action": "drop_database",
+    "risk": "critical",
+    "issues": ["destructive_database_operation"],
+    "matchedRules": ["ask-before-destructive-database-operations"]
+  }
+}

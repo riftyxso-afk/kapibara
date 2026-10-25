@@ -1,0 +1,14 @@
+{
+  "name": "read-only file access",
+  "description": "Reading a normal project file is safe.",
+  "input": {
+    "action": "read file",
+    "target": "README.md"
+  },
+  "expect": {
+    "decision": "allow",
+    "action": "read_file",
+    "risk": "low",
+    "issues": []
+  }
+}

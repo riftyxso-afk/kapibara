@@ -1,0 +1,6 @@
+{
+  "profile": "balanced",
+  "auditLog": false,
+  "failMode": "risk_based",
+  "auditRetentionDays": 7
+}

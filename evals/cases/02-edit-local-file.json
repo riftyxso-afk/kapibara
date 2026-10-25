@@ -1,0 +1,14 @@
+{
+  "name": "edit a local source file",
+  "description": "A local edit is reversible but still changes the workspace.",
+  "input": {
+    "action": "edit file",
+    "target": "src/index.ts"
+  },
+  "expect": {
+    "decision": "warn",
+    "action": "modify_local_file",
+    "risk": "medium",
+    "issues": []
+  }
+}

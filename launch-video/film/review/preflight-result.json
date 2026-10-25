@@ -1,0 +1,92 @@
+{
+  "badgeText": "BLOCK · 85/100",
+  "badgeTone": "block",
+  "toolLabel": "kapibara_preflight · git_force_push",
+  "summary": "Do not rewrite protected branch history. Use a normal push or open a pull request. Do not proceed unless the user explicitly overrides this rule.",
+  "payload": {
+    "decision": "block",
+    "risk": "critical",
+    "score": 85,
+    "issues": [
+      {
+        "type": "protected_branch_force_push",
+        "severity": "critical",
+        "message": "Force pushing a protected branch may rewrite shared repository history.",
+        "evidence": [
+          "target: origin/main"
+        ],
+        "recommendation": "Do not rewrite protected branch history. Use a normal push or open a pull request.",
+        "blocking": true
+      },
+      {
+        "type": "shell_command",
+        "severity": "medium",
+        "message": "The action executes a shell command.",
+        "recommendation": "Review the exact command and run it in a reversible environment when possible."
+      },
+      {
+        "type": "rule_violation",
+        "severity": "critical",
+        "message": "Rule matched: Never force push to main.",
+        "evidence": [
+          "rule: never-force-push-to-main",
+          "source: default:balanced"
+        ],
+        "recommendation": "Do not proceed unless the user explicitly overrides this rule.",
+        "blocking": true
+      }
+    ],
+    "matchedRules": [
+      "never-force-push-to-main"
+    ],
+    "recommendation": "Do not rewrite protected branch history. Use a normal push or open a pull request. Do not proceed unless the user explicitly overrides this rule.",
+    "requiresUserApproval": true,
+    "action": "git_force_push",
+    "factors": [
+      {
+        "name": "destructive_impact",
+        "score": 20,
+        "max": 25,
+        "reason": "Force push has a baseline destructive impact."
+      },
+      {
+        "name": "reversibility",
+        "score": 20,
+        "max": 20,
+        "reason": "Force push is not reliably reversible."
+      },
+      {
+        "name": "sensitive_data",
+        "score": 0,
+        "max": 20,
+        "reason": "Baseline exposure of sensitive data for this action."
+      },
+      {
+        "name": "external_side_effects",
+        "score": 10,
+        "max": 15,
+        "reason": "Force push affects systems outside the workspace."
+      },
+      {
+        "name": "production_impact",
+        "score": 0,
+        "max": 10,
+        "reason": "Baseline production impact for this action."
+      },
+      {
+        "name": "uncertainty",
+        "score": 8,
+        "max": 10,
+        "reason": "Baseline uncertainty in the action's outcome."
+      }
+    ],
+    "scan": {
+      "sources": [
+        "context.metadata.content"
+      ],
+      "findings": 0,
+      "truncated": false,
+      "skipped": []
+    }
+  }
+}

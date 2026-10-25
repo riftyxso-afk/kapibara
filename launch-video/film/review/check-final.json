@@ -1,0 +1,239 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 10
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 2.128,
+        "selector": "#opening-cloud",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -292.6,
+          "top": -163.54,
+          "right": 2208.89,
+          "bottom": 1243.54,
+          "width": 2501.49,
+          "height": 1407.09
+        },
+        "containerSelector": "#opening > div:nth-of-type(1) > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 292.6,
+          "right": 288.89,
+          "top": 163.54,
+          "bottom": 163.54
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/opening.html",
+        "bbox": {
+          "x": -292.6,
+          "y": -163.54,
+          "width": 2501.49,
+          "height": 1407.09
+        },
+        "firstSeen": 2.128,
+        "lastSeen": 2.128,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.128
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 19.15,
+        "selector": "#proof-cloud",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -288,
+          "top": -162,
+          "right": 2208,
+          "bottom": 1242,
+          "width": 2496,
+          "height": 1404
+        },
+        "containerSelector": "#proof-stage",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 288,
+          "right": 288,
+          "top": 162,
+          "bottom": 162
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/proof.html",
+        "bbox": {
+          "x": -288,
+          "y": -162,
+          "width": 2496,
+          "height": 1404
+        },
+        "firstSeen": 19.15,
+        "lastSeen": 19.15,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          19.15
+        ]
+      }
+    ],
+    "duration": 38.3,
+    "samples": [
+      2.128,
+      6.383,
+      10.639,
+      14.894,
+      19.15,
+      23.406,
+      27.661,
+      31.917,
+      36.172
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "specPath": "/home/riftyxso/kapibara/launch-video/film/index.motion.json",
+    "samples": 300
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.128,
+      10.639,
+      19.15,
+      27.661,
+      36.172
+    ],
+    "checked": 21,
+    "passed": 21
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"Verified against this codebase · balanced pro...\" renders at 27 px for 2.00 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Verified against this codebase · balanced profile",
+        "selector": "#evals-note",
+        "dataAttributes": {},
+        "sourceFile": "compositions/evals.html",
+        "bbox": {
+          "x": 688.67,
+          "y": 910,
+          "width": 542.64,
+          "height": 27
+        },
+        "time": 32.312,
+        "times": [
+          32.312
+        ],
+        "fontPx": 27,
+        "floorPx": 28,
+        "seconds": 1.996,
+        "elements": [
+          {
+            "selector": "#evals-note",
+            "text": "Verified against this codebase · balanced profile",
+            "fontPx": 27,
+            "time": 32.312,
+            "seconds": 1.996
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 307
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": true,
+    "files": [
+      ".hyperframes/artifacts/snapshots/7fbe98c8-b1f2-4f24-abc6-6204449167f3/frame-00-at-2.1s.png",
+      ".hyperframes/artifacts/snapshots/7fbe98c8-b1f2-4f24-abc6-6204449167f3/frame-01-at-10.6s.png",
+      ".hyperframes/artifacts/snapshots/7fbe98c8-b1f2-4f24-abc6-6204449167f3/frame-02-at-19.1s.png",
+      ".hyperframes/artifacts/snapshots/7fbe98c8-b1f2-4f24-abc6-6204449167f3/frame-03-at-27.7s.png",
+      ".hyperframes/artifacts/snapshots/7fbe98c8-b1f2-4f24-abc6-6204449167f3/frame-04-at-36.2s.png"
+    ],
+    "times": [
+      2.128,
+      10.639,
+      19.15,
+      27.661,
+      36.172
+    ],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "2f22af3d-c84c-4b8c-a59e-3fbff0e516b7",
+    "revision": null,
+    "report": "/home/riftyxso/kapibara/launch-video/film/.hyperframes/artifacts/checks/2f22af3d-c84c-4b8c-a59e-3fbff0e516b7.json",
+    "attribution": "inputs-changed"
+  },
+  "_meta": {
+    "version": "0.8.195",
+    "latestVersion": "0.8.188",
+    "updateAvailable": false
+  }
+}

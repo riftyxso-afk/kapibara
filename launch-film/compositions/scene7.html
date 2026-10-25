@@ -1,0 +1,472 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "GeistMono";
+      src: url("assets/fonts/GeistMono-Latin.woff2") format("woff2");
+      font-weight: 400 600;
+      font-style: normal;
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "ABCDiatype", sans-serif;
+      background: #f2f1ef;
+    }
+
+    .s7-stage {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    /* Part A: Dual Contribution Heatmaps (matching reference frames 31s-34.4s) */
+    .s7-heatmap-world {
+      position: absolute;
+      inset: 0;
+      background: #f2f1ef;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 44px;
+    }
+
+    .s7-chart-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .s7-chart-title {
+      font-size: 30px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #161512;
+    }
+
+    .s7-chart-title strong {
+      font-weight: 600;
+    }
+
+    .s7-months {
+      width: 1060px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      color: #8c8881;
+      padding: 0 8px;
+    }
+
+    .s7-grid {
+      display: grid;
+      grid-template-columns: repeat(32, 26px);
+      grid-template-rows: repeat(5, 26px);
+      gap: 7px;
+    }
+
+    .s7-cell {
+      width: 26px;
+      height: 26px;
+      border-radius: 5px;
+      opacity: 0;
+    }
+
+    /* Green shades for "Your coding looks like this" */
+    .g-1 {
+      background: #bbf7d0;
+    }
+    .g-2 {
+      background: #4ade80;
+    }
+    .g-3 {
+      background: #16a34a;
+    }
+    .g-4 {
+      background: #14532d;
+    }
+
+    /* Terracotta/Crimson shades for "now your agent safety looks like this" */
+    .r-1 {
+      background: #fecdd3;
+    }
+    .r-2 {
+      background: #fb7185;
+    }
+    .r-3 {
+      background: #e11d48;
+    }
+    .r-4 {
+      background: #881337;
+    }
+
+    /* Part B: Pure Obsidian Black End Card (matching reference frames 34.4s-38s) */
+    .s7-endcard {
+      position: absolute;
+      inset: 0;
+      background: #040404;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+
+    .s7-emblem-wrap {
+      position: relative;
+      width: 168px;
+      height: 168px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s7-emblem-glow {
+      position: absolute;
+      inset: -18px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(229, 61, 0, 0.42) 0%, transparent 70%);
+    }
+
+    .s7-emblem-img {
+      position: relative;
+      width: 148px;
+      height: 148px;
+      border-radius: 38px;
+      object-fit: cover;
+      box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.22),
+        0 20px 55px rgba(229, 61, 0, 0.35);
+    }
+
+    .s7-type-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 18px;
+    }
+
+    .s7-end-char {
+      display: inline-block;
+      opacity: 0;
+    }
+
+    .s7-end-caret {
+      display: inline-block;
+      width: 4px;
+      height: 44px;
+      background: #f59e0b;
+      margin-left: 4px;
+    }
+
+    .s7-end-sub {
+      font-family: "GeistMono", monospace;
+      font-size: 22px;
+      color: #a39e96;
+      opacity: 0;
+    }
+  </style>
+
+  <div data-hf-id="hf-0h26" id="root" data-composition-id="scene7" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-nztf" id="s7-stage" class="clip s7-stage" data-start="0" data-duration="7">
+      <!-- Part A: Dual Contribution Heatmaps (0.0s - 3.4s) -->
+      <div data-hf-id="hf-av3e" id="s7-heatmaps" class="s7-heatmap-world" data-layout-allow-overlap>
+        <!-- Top Heatmap: Coding -->
+        <div data-hf-id="hf-l8b1" class="s7-chart-block">
+          <div data-hf-id="hf-dweb" id="s7-title-top" class="s7-chart-title">Your coding looks like this</div>
+          <div data-hf-id="hf-yyku" class="s7-months">
+            <span data-hf-id="hf-e12y">Jan</span><span data-hf-id="hf-u492">Feb</span><span data-hf-id="hf-sx6f">Mar</span><span data-hf-id="hf-irhi">Apr</span><span data-hf-id="hf-vpbm">May</span
+            ><span data-hf-id="hf-khom">Jun</span><span data-hf-id="hf-laao">Jul</span><span data-hf-id="hf-yr20">Aug</span><span data-hf-id="hf-g4bf">Sep</span><span data-hf-id="hf-wo5p">Oct</span
+            ><span data-hf-id="hf-zhcw">Nov</span>
+          </div>
+          <div data-hf-id="hf-qdd2" id="s7-grid-top" class="s7-grid">
+            <!-- 32 columns x 2 rows rendered via static cells for deterministic HyperFrames DOM -->
+            <span data-hf-id="hf-y2wy" class="s7-cell g-2"></span><span data-hf-id="hf-ejjg" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-210z" class="s7-cell g-3"></span><span data-hf-id="hf-rx75" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-evpv" class="s7-cell g-3"></span><span data-hf-id="hf-9vk4" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-jlwm" class="s7-cell g-2"></span><span data-hf-id="hf-eheu" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-8on1" class="s7-cell g-4"></span><span data-hf-id="hf-k07n" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-pl51" class="s7-cell g-1"></span><span data-hf-id="hf-92y2" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-e33t" class="s7-cell g-3"></span><span data-hf-id="hf-keio" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-b2h7" class="s7-cell g-4"></span><span data-hf-id="hf-doss" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-hmdh" class="s7-cell g-2"></span><span data-hf-id="hf-bgs8" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-qs24" class="s7-cell g-1"></span><span data-hf-id="hf-dahr" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-a9v5" class="s7-cell g-4"></span><span data-hf-id="hf-i0oi" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-cw6q" class="s7-cell g-3"></span><span data-hf-id="hf-ao66" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-iezj" class="s7-cell g-2"></span><span data-hf-id="hf-chvp" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-cnpb" class="s7-cell g-4"></span><span data-hf-id="hf-qdr3" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-c3ko" class="s7-cell g-3"></span><span data-hf-id="hf-d20c" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-itak" class="s7-cell g-2"></span><span data-hf-id="hf-gtek" class="s7-cell g-4"></span>
+            <span data-hf-id="hf-bp9n" class="s7-cell g-3"></span><span data-hf-id="hf-rko6" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-gf3j" class="s7-cell g-4"></span><span data-hf-id="hf-g15d" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-g0si" class="s7-cell g-4"></span><span data-hf-id="hf-e595" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-r6d5" class="s7-cell g-1"></span><span data-hf-id="hf-fmhh" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-gfge" class="s7-cell g-2"></span><span data-hf-id="hf-ejk6" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-iemo" class="s7-cell g-4"></span><span data-hf-id="hf-fmzm" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-sda8" class="s7-cell g-1"></span><span data-hf-id="hf-i0bn" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-exv7" class="s7-cell g-3"></span><span data-hf-id="hf-f8ol" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-hm0m" class="s7-cell g-4"></span><span data-hf-id="hf-fc68" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-gflo" class="s7-cell g-2"></span><span data-hf-id="hf-h7pl" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-ck11" class="s7-cell g-3"></span><span data-hf-id="hf-ryz7" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-dmyc" class="s7-cell g-4"></span><span data-hf-id="hf-g1an" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-cyc2" class="s7-cell g-3"></span><span data-hf-id="hf-d8nb" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-h87q" class="s7-cell g-2"></span><span data-hf-id="hf-dcn3" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-j4dz" class="s7-cell g-4"></span><span data-hf-id="hf-gtwp" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-dqy4" class="s7-cell g-3"></span><span data-hf-id="hf-jip0" class="s7-cell g-4"></span>
+            <span data-hf-id="hf-mszu" class="s7-cell g-1"></span><span data-hf-id="hf-aysx" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-i0ts" class="s7-cell g-2"></span><span data-hf-id="hf-ibrx" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-hmir" class="s7-cell g-2"></span><span data-hf-id="hf-bd3y" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-iq2y" class="s7-cell g-4"></span><span data-hf-id="hf-cgje" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-ewwy" class="s7-cell g-3"></span><span data-hf-id="hf-kpm3" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-c28d" class="s7-cell g-2"></span><span data-hf-id="hf-eilx" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-l3x4" class="s7-cell g-4"></span><span data-hf-id="hf-meot" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-fpj0" class="s7-cell g-3"></span><span data-hf-id="hf-jx01" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-evbt" class="s7-cell g-2"></span><span data-hf-id="hf-fb7z" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-kbb2" class="s7-cell g-4"></span><span data-hf-id="hf-gtnz" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-f9mu" class="s7-cell g-2"></span><span data-hf-id="hf-mau7" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-gi52" class="s7-cell g-3"></span><span data-hf-id="hf-fnxv" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-mp58" class="s7-cell g-4"></span><span data-hf-id="hf-g3u1" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-h7z0" class="s7-cell g-1"></span><span data-hf-id="hf-icq6" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-g28w" class="s7-cell g-2"></span><span data-hf-id="hf-har4" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-hyf5" class="s7-cell g-4"></span><span data-hf-id="hf-gwg3" class="s7-cell g-3"></span>
+            <span data-hf-id="hf-j5c8" class="s7-cell g-4"></span><span data-hf-id="hf-da3p" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-bqgq" class="s7-cell g-3"></span><span data-hf-id="hf-g11x" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-ir17" class="s7-cell g-4"></span><span data-hf-id="hf-doeq" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-bc5p" class="s7-cell g-3"></span><span data-hf-id="hf-gri2" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-gfcy" class="s7-cell g-1"></span><span data-hf-id="hf-fokr" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-e2pr" class="s7-cell g-2"></span><span data-hf-id="hf-gd71" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-g2vs" class="s7-cell g-3"></span><span data-hf-id="hf-eh0s" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-hk44" class="s7-cell g-4"></span><span data-hf-id="hf-iew3" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-evyp" class="s7-cell g-3"></span><span data-hf-id="hf-h5t3" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-bovl" class="s7-cell g-2"></span><span data-hf-id="hf-fa9q" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-lj6e" class="s7-cell g-4"></span><span data-hf-id="hf-c36m" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-it74" class="s7-cell g-1"></span><span data-hf-id="hf-l4vd" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-e3cn" class="s7-cell g-3"></span><span data-hf-id="hf-e3o0" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-gntt" class="s7-cell g-4"></span><span data-hf-id="hf-ehno" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-dpcz" class="s7-cell g-2"></span><span data-hf-id="hf-h24u" class="s7-cell g-4"></span>
+            <span data-hf-id="hf-db1y" class="s7-cell g-2"></span><span data-hf-id="hf-daql" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-hgfv" class="s7-cell g-4"></span><span data-hf-id="hf-cwqx" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-dp1m" class="s7-cell g-3"></span><span data-hf-id="hf-hma1" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-huqw" class="s7-cell g-4"></span><span data-hf-id="hf-iv0z" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-cifw" class="s7-cell g-2"></span><span data-hf-id="hf-f2lp" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-j9c0" class="s7-cell g-3"></span><span data-hf-id="hf-i0l2" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-c44v" class="s7-cell g-2"></span><span data-hf-id="hf-fgwq" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-1l10" class="s7-cell g-3"></span><span data-hf-id="hf-bptu" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-fv7r" class="s7-cell g-4"></span><span data-hf-id="hf-dn7r" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-16pz" class="s7-cell g-3"></span><span data-hf-id="hf-g9is" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-bbit" class="s7-cell g-2"></span><span data-hf-id="hf-0sey" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-jua1" class="s7-cell g-4"></span><span data-hf-id="hf-e1is" class="s7-cell g-1"></span
+            ><span data-hf-id="hf-0e3x" class="s7-cell g-3"></span><span data-hf-id="hf-ax7s" class="s7-cell g-2"></span
+            ><span data-hf-id="hf-k8l2" class="s7-cell g-4"></span><span data-hf-id="hf-3694" class="s7-cell g-3"></span
+            ><span data-hf-id="hf-aiwr" class="s7-cell g-2"></span><span data-hf-id="hf-ytco" class="s7-cell g-4"></span
+            ><span data-hf-id="hf-go38" class="s7-cell g-1"></span><span data-hf-id="hf-2ry3" class="s7-cell g-3"></span>
+          </div>
+        </div>
+
+        <!-- Bottom Heatmap: Agent Safety -->
+        <div data-hf-id="hf-841t" class="s7-chart-block">
+          <div data-hf-id="hf-pcej" id="s7-title-bot" class="s7-chart-title">
+            now your <strong data-hf-id="hf-l933">agent safety</strong> looks like this
+          </div>
+          <div data-hf-id="hf-16z6" class="s7-months">
+            <span data-hf-id="hf-u93y">Jan</span><span data-hf-id="hf-f30q">Feb</span><span data-hf-id="hf-2ozb">Mar</span><span data-hf-id="hf-m9m2">Apr</span><span data-hf-id="hf-dbjq">May</span
+            ><span data-hf-id="hf-m7ii">Jun</span><span data-hf-id="hf-1w7s">Jul</span><span data-hf-id="hf-9n4g">Aug</span><span data-hf-id="hf-dvkr">Sep</span><span data-hf-id="hf-q001">Oct</span
+            ><span data-hf-id="hf-t76g">Nov</span>
+          </div>
+          <div data-hf-id="hf-sqx4" id="s7-grid-bot" class="s7-grid">
+            <span data-hf-id="hf-t93n" class="s7-cell r-2"></span><span data-hf-id="hf-6j9x" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-pazm" class="s7-cell r-3"></span><span data-hf-id="hf-kl7s" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-mpqe" class="s7-cell r-3"></span><span data-hf-id="hf-o6rt" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-rhyr" class="s7-cell r-2"></span><span data-hf-id="hf-n41f" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-pdow" class="s7-cell r-4"></span><span data-hf-id="hf-r3nq" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-e4bk" class="s7-cell r-1"></span><span data-hf-id="hf-ozdv" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-nicg" class="s7-cell r-3"></span><span data-hf-id="hf-qpcp" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-mzuq" class="s7-cell r-4"></span><span data-hf-id="hf-kq79" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-qb1o" class="s7-cell r-2"></span><span data-hf-id="hf-mljp" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-cxeh" class="s7-cell r-1"></span><span data-hf-id="hf-l4ia" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-nsgs" class="s7-cell r-4"></span><span data-hf-id="hf-pwqn" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-litb" class="s7-cell r-3"></span><span data-hf-id="hf-ne5r" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-pifm" class="s7-cell r-2"></span><span data-hf-id="hf-lx4c" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-lemm" class="s7-cell r-4"></span><span data-hf-id="hf-dbpi" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-j4z5" class="s7-cell r-3"></span><span data-hf-id="hf-l0bl" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-p44l" class="s7-cell r-2"></span><span data-hf-id="hf-zkvv" class="s7-cell r-4"></span>
+            <span data-hf-id="hf-jja6" class="s7-cell r-3"></span><span data-hf-id="hf-c4sf" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-zz6w" class="s7-cell r-4"></span><span data-hf-id="hf-optk" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-ys9t" class="s7-cell r-4"></span><span data-hf-id="hf-r4g2" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-cj3g" class="s7-cell r-1"></span><span data-hf-id="hf-z6ku" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-obij" class="s7-cell r-2"></span><span data-hf-id="hf-qq51" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-xznr" class="s7-cell r-4"></span><span data-hf-id="hf-bq61" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-bc6d" class="s7-cell r-1"></span><span data-hf-id="hf-ydys" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-rx24" class="s7-cell r-3"></span><span data-hf-id="hf-c4h2" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-x71p" class="s7-cell r-4"></span><span data-hf-id="hf-rir3" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-cis3" class="s7-cell r-2"></span><span data-hf-id="hf-xlcq" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-spo6" class="s7-cell r-3"></span><span data-hf-id="hf-bqhe" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-2rc3" class="s7-cell r-4"></span><span data-hf-id="hf-cx34" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-sbd5" class="s7-cell r-3"></span><span data-hf-id="hf-35n4" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-a4xx" class="s7-cell r-2"></span><span data-hf-id="hf-tia8" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-g734" class="s7-cell r-4"></span><span data-hf-id="hf-aj8y" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-t3z7" class="s7-cell r-3"></span><span data-hf-id="hf-fss3" class="s7-cell r-4"></span>
+            <span data-hf-id="hf-ajkb" class="s7-cell r-1"></span><span data-hf-id="hf-nxzu" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-axjz" class="s7-cell r-2"></span><span data-hf-id="hf-feh2" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-bbv0" class="s7-cell r-2"></span><span data-hf-id="hf-njot" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-f061" class="s7-cell r-4"></span><span data-hf-id="hf-8jpt" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-99yx" class="s7-cell r-3"></span><span data-hf-id="hf-elv0" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-8y0u" class="s7-cell r-2"></span><span data-hf-id="hf-9o9y" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-e7jz" class="s7-cell r-4"></span><span data-hf-id="hf-axvc" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-a2kz" class="s7-cell r-3"></span><span data-hf-id="hf-dt8y" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-xmma" class="s7-cell r-2"></span><span data-hf-id="hf-agw0" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-dexx" class="s7-cell r-4"></span><span data-hf-id="hf-xuk0" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-x8b9" class="s7-cell r-2"></span><span data-hf-id="hf-d0mw" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-7oqt" class="s7-cell r-3"></span><span data-hf-id="hf-yf8c" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-cmbv" class="s7-cell r-4"></span><span data-hf-id="hf-831u" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-xg8z" class="s7-cell r-1"></span><span data-hf-id="hf-gyqx" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-y0xb" class="s7-cell r-2"></span><span data-hf-id="hf-8hcv" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-hd1y" class="s7-cell r-4"></span><span data-hf-id="hf-8vnw" class="s7-cell r-3"></span>
+            <span data-hf-id="hf-hrcz" class="s7-cell r-4"></span><span data-hf-id="hf-z7ue" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-63ip" class="s7-cell r-3"></span><span data-hf-id="hf-x1xy" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-i5o0" class="s7-cell r-4"></span><span data-hf-id="hf-ytjd" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-6htq" class="s7-cell r-3"></span><span data-hf-id="hf-fdit" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-wnmx" class="s7-cell r-1"></span><span data-hf-id="hf-8ib4" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-00gg" class="s7-cell r-2"></span><span data-hf-id="hf-frtu" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-8403" class="s7-cell r-3"></span><span data-hf-id="hf-zm5f" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-g64v" class="s7-cell r-4"></span><span data-hf-id="hf-w9bw" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-7pp2" class="s7-cell r-3"></span><span data-hf-id="hf-gkfw" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-ug62" class="s7-cell r-2"></span><span data-hf-id="hf-7be1" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-dsap" class="s7-cell r-4"></span><span data-hf-id="hf-u1v1" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-vv0v" class="s7-cell r-1"></span><span data-hf-id="hf-e6lq" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-6x30" class="s7-cell r-3"></span><span data-hf-id="hf-yea3" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-zqgm" class="s7-cell r-4"></span><span data-hf-id="hf-6irz" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-ysl4" class="s7-cell r-2"></span><span data-hf-id="hf-zc5l" class="s7-cell r-4"></span>
+            <span data-hf-id="hf-xlo1" class="s7-cell r-2"></span><span data-hf-id="hf-64gy" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-0j2o" class="s7-cell r-4"></span><span data-hf-id="hf-xzz2" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-5q5x" class="s7-cell r-3"></span><span data-hf-id="hf-vgpu" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-04rn" class="s7-cell r-4"></span><span data-hf-id="hf-5buw" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-wt1z" class="s7-cell r-2"></span><span data-hf-id="hf-y58i" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-4xjv" class="s7-cell r-3"></span><span data-hf-id="hf-v2et" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-x7d0" class="s7-cell r-2"></span><span data-hf-id="hf-xqxh" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-stcf" class="s7-cell r-3"></span><span data-hf-id="hf-w0fx" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-yxuk" class="s7-cell r-4"></span><span data-hf-id="hf-uo3s" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-t7ng" class="s7-cell r-3"></span><span data-hf-id="hf-yjjj" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-weqy" class="s7-cell r-2"></span><span data-hf-id="hf-s0qd" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-wk0e" class="s7-cell r-4"></span><span data-hf-id="hf-u9sr" class="s7-cell r-1"></span
+            ><span data-hf-id="hf-sf1e" class="s7-cell r-3"></span><span data-hf-id="hf-1kqb" class="s7-cell r-2"></span
+            ><span data-hf-id="hf-w5pd" class="s7-cell r-4"></span><span data-hf-id="hf-uekj" class="s7-cell r-3"></span
+            ><span data-hf-id="hf-1z1c" class="s7-cell r-2"></span><span data-hf-id="hf-0i4f" class="s7-cell r-4"></span
+            ><span data-hf-id="hf-labv" class="s7-cell r-1"></span><span data-hf-id="hf-usvk" class="s7-cell r-3"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part B: Pure Obsidian Black End Card (3.4s - 7.0s) -->
+      <div data-hf-id="hf-uqqc" id="s7-endcard" class="s7-endcard" data-layout-allow-overlap>
+        <div data-hf-id="hf-qdg1" id="s7-emblem" class="s7-emblem-wrap">
+          <div data-hf-id="hf-ude0" class="s7-emblem-glow" data-layout-ignore></div>
+          <img data-hf-id="hf-hacb" class="s7-emblem-img" src="assets/logo.png" alt="Kapibara" />
+        </div>
+
+        <div data-hf-id="hf-hzr8" class="s7-type-row">
+          <span data-hf-id="hf-74d5" class="s7-end-char">k</span><span data-hf-id="hf-4qiz" class="s7-end-char">a</span
+          ><span data-hf-id="hf-yrxk" class="s7-end-char">p</span><span data-hf-id="hf-7wz7" class="s7-end-char">i</span
+          ><span data-hf-id="hf-4c7y" class="s7-end-char">b</span><span data-hf-id="hf-pmej" class="s7-end-char">a</span
+          ><span data-hf-id="hf-xzbi" class="s7-end-char">r</span><span data-hf-id="hf-p83i" class="s7-end-char">a</span
+          ><span data-hf-id="hf-vd1u" class="s7-end-char">.</span><span data-hf-id="hf-3jlw" class="s7-end-char">d</span
+          ><span data-hf-id="hf-35av" class="s7-end-char">e</span><span data-hf-id="hf-we3e" class="s7-end-char">v</span>
+          <span data-hf-id="hf-t4sz" id="s7-end-caret" class="s7-end-caret"></span>
+        </div>
+
+        <div data-hf-id="hf-n1uo" id="s7-end-sub" class="s7-end-sub">
+          npx -y @kapibara/mcp · Your AI can act. Kapibara checks first.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Top green contribution grid fills in (0.05s -> 1.3s)
+    const topCells = document.querySelectorAll("#s7-grid-top .s7-cell");
+    topCells.forEach((cell, idx) => {
+      const col = idx % 32;
+      tl.fromTo(
+        cell,
+        { opacity: 0, scale: 0.4 },
+        { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(1.6)" },
+        0.06 + col * 0.032,
+      );
+    });
+
+    // Bottom terracotta safety grid fills in (1.15s -> 2.65s)
+    tl.fromTo(
+      "#s7-title-bot",
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" },
+      1.05,
+    );
+    const botCells = document.querySelectorAll("#s7-grid-bot .s7-cell");
+    botCells.forEach((cell, idx) => {
+      const col = idx % 32;
+      tl.fromTo(
+        cell,
+        { opacity: 0, scale: 0.4 },
+        { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(1.6)" },
+        1.18 + col * 0.035,
+      );
+    });
+
+    // Hard cut to Obsidian Black End Card at 3.35s (matching reference frame 35s)
+    tl.set("#s7-endcard", { opacity: 1 }, 3.35);
+    tl.fromTo(
+      "#s7-emblem",
+      { scale: 0.78, opacity: 0, y: 18 },
+      { scale: 1, opacity: 1, y: 0, duration: 0.42, ease: "back.out(1.7)" },
+      3.38,
+    );
+
+    // Type out "kapibara.dev" character by character (3.65s -> 5.05s)
+    const endChars = document.querySelectorAll(".s7-end-char");
+    endChars.forEach((ch, idx) => {
+      tl.fromTo(
+        ch,
+        { opacity: 0, y: 6 },
+        { opacity: 1, y: 0, duration: 0.04, ease: "none" },
+        3.68 + idx * 0.095,
+      );
+    });
+
+    tl.fromTo(
+      "#s7-end-caret",
+      { opacity: 1 },
+      { opacity: 0.15, duration: 0.28, yoyo: true, repeat: 11, ease: "steps(1)" },
+      3.4,
+    );
+
+    tl.fromTo(
+      "#s7-end-sub",
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" },
+      4.95,
+    );
+
+    window.__timelines["scene7"] = tl;
+  </script>
+</template>

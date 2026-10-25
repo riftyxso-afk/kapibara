@@ -1,0 +1,20 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+.kapibara/logs/
+.kapibara/cache/
+*.log
+
+# HyperFrames temp & cache
+.hyperframes/
+.thumbnails/
+.waveform-cache/
+work-*/
+*.hf-transaction-*
+.hf-transaction-*
+

@@ -1,0 +1,15 @@
+{
+  "name": "recursive directory deletion",
+  "description": "Recursive deletion can destroy an unbounded set of files.",
+  "input": {
+    "action": "recursive delete",
+    "target": "/tmp/cache"
+  },
+  "expect": {
+    "decision": "require_approval",
+    "action": "recursive_delete",
+    "risk": "critical",
+    "issues": ["recursive_delete"],
+    "matchedRules": ["warn-before-recursive-file-deletion"]
+  }
+}

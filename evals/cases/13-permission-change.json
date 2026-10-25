@@ -1,0 +1,14 @@
+{
+  "name": "change production permissions",
+  "description": "Changing access control requires approval.",
+  "input": {
+    "action": "change permissions",
+    "target": "production admin role"
+  },
+  "expect": {
+    "decision": "require_approval",
+    "action": "permission_change",
+    "risk": "high",
+    "issues": ["permission_change"]
+  }
+}

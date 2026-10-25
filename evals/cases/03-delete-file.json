@@ -1,0 +1,14 @@
+{
+  "name": "delete a temporary file",
+  "description": "A plain file deletion is a warning, not an approval gate.",
+  "input": {
+    "action": "delete file",
+    "target": "tmp/report.txt"
+  },
+  "expect": {
+    "decision": "warn",
+    "action": "delete_file",
+    "risk": "medium",
+    "issues": []
+  }
+}

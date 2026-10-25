@@ -1,0 +1,30 @@
+[aist#0:0/pcm_s16le @ 0x5588e536a300] Guessed Channel Layout: stereo
+Input #0, wav, from 'assets/reference-soundtrack.wav':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Duration: 00:00:38.29, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Audio: pcm_s16le, 192000 Hz, stereo, s16, 6144 kb/s
+    Metadata:
+      encoder         : Lavc63.1.102 pcm_s16le
+size=N/A time=00:00:05.60 bitrate=N/A speed=11.2x elapsed=0:00:00.50    size=N/A time=00:00:12.10 bitrate=N/A speed=12.1x elapsed=0:00:01.00    size=N/A time=00:00:19.80 bitrate=N/A speed=13.2x elapsed=0:00:01.50    size=N/A time=00:00:24.90 bitrate=N/A speed=12.4x elapsed=0:00:02.00    size=N/A time=00:00:28.00 bitrate=N/A speed=11.1x elapsed=0:00:02.51    size=N/A time=00:00:34.40 bitrate=N/A speed=11.4x elapsed=0:00:03.01    [Parsed_loudnorm_0 @ 0x7ff53c001f40] 
+{
+	"input_i" : "-18.97",
+	"input_tp" : "-0.56",
+	"input_lra" : "7.40",
+	"input_thresh" : "-28.99",
+	"output_i" : "-16.60",
+	"output_tp" : "-1.50",
+	"output_lra" : "4.90",
+	"output_thresh" : "-26.62",
+	"normalization_type" : "dynamic",
+	"target_offset" : "1.60"
+}
+[out#0/null @ 0x5588e539b780] video:0KiB audio:28720KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:38.30 bitrate=N/A speed=12.2x elapsed=0:00:03.14    

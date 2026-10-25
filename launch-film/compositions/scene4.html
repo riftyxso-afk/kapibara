@@ -1,0 +1,334 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "GeistMono";
+      src: url("assets/fonts/GeistMono-Latin.woff2") format("woff2");
+      font-weight: 400 600;
+      font-style: normal;
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "ABCDiatype", sans-serif;
+      background: #ffffff;
+    }
+
+    .s4-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+
+    .s4-camera {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Studio Display Monitor Frame (matching reference frames 15s-19s) */
+    .s4-monitor {
+      position: relative;
+      width: 1420px;
+      height: 820px;
+      background: #ffffff;
+      border: 14px solid #141413;
+      border-radius: 22px;
+      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.14);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 34px 44px;
+    }
+
+    .s4-stand {
+      width: 220px;
+      height: 110px;
+      background: linear-gradient(180deg, #98989a 0%, #c8c8ca 100%);
+      border-radius: 0 0 12px 12px;
+      margin-top: -2px;
+    }
+
+    .s4-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1.5px solid #efece8;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    .s4-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .s4-brand-row img {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+    }
+
+    .s4-brand-title {
+      font-size: 24px;
+      font-weight: 500;
+      color: #161512;
+    }
+
+    .s4-center-banner {
+      font-size: 24px;
+      font-weight: 500;
+      color: #e53d00;
+    }
+
+    .s4-sub-tabs {
+      font-family: "GeistMono", monospace;
+      font-size: 16px;
+      color: #7c776f;
+    }
+
+    /* Table Header & Rows */
+    .s4-table-head {
+      display: grid;
+      grid-template-columns: 390px 140px 260px 210px 280px;
+      align-items: center;
+      padding: 10px 14px;
+      font-family: "GeistMono", monospace;
+      font-size: 15px;
+      color: #8a847c;
+      border-bottom: 1px solid #f0ede9;
+    }
+
+    .s4-row {
+      display: grid;
+      grid-template-columns: 390px 140px 260px 210px 280px;
+      align-items: center;
+      padding: 18px 14px;
+      border-bottom: 1px solid #f3f0ec;
+      font-size: 20px;
+      color: #161512;
+      opacity: 0;
+    }
+
+    .s4-cmd {
+      font-family: "GeistMono", monospace;
+      font-size: 18px;
+      font-weight: 500;
+      color: #161512;
+    }
+
+    .s4-score {
+      font-family: "GeistMono", monospace;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .s4-factor-bars {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .s4-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: "GeistMono", monospace;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .s4-pill--red {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+    .s4-pill--amber {
+      background: #fef3c7;
+      color: #b45309;
+    }
+    .s4-pill--blue {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+    .s4-pill--green {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .s4-action-btn {
+      justify-self: end;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: #f5f3ef;
+      border: 1px solid #e4e0d8;
+      font-size: 16px;
+      font-weight: 500;
+      color: #161512;
+    }
+    .s4-action-btn--active {
+      background: #dcfce7;
+      border-color: #86efac;
+      color: #14532d;
+    }
+  </style>
+
+  <div data-hf-id="hf-0ywv" id="root" data-composition-id="scene4" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-b216" id="s4-stage" class="clip s4-stage" data-start="0" data-duration="6">
+      <div data-hf-id="hf-atxv" id="s4-camera" class="s4-camera" data-layout-allow-overflow>
+        <div data-hf-id="hf-y9gs" id="s4-monitor" class="s4-monitor" data-layout-allow-overlap>
+          <div data-hf-id="hf-rjaq" class="s4-topbar">
+            <div data-hf-id="hf-yujm" class="s4-brand-row">
+              <img data-hf-id="hf-pf7f" src="assets/logo.png" alt="Kapibara" />
+              <span data-hf-id="hf-n7lj" class="s4-brand-title">Kapibara Preflight &amp; 6-Factor Risk Matrix</span>
+            </div>
+            <span data-hf-id="hf-duas" class="s4-center-banner">Deterministic local safety gate in &lt;2ms</span>
+            <span data-hf-id="hf-g40c" class="s4-sub-tabs">Board · Rules · Scanners · Timeline</span>
+          </div>
+
+          <div data-hf-id="hf-lssp" class="s4-table-head">
+            <span data-hf-id="hf-46ta">AGENT ACTION / TARGET</span>
+            <span data-hf-id="hf-8wag">RISK SCORE</span>
+            <span data-hf-id="hf-5wz7">TOP RISK FACTORS</span>
+            <span data-hf-id="hf-1yfm">POLICY PROFILE</span>
+            <span data-hf-id="hf-val0" style="text-align: right">DECISION GATE</span>
+          </div>
+
+          <!-- Row 1 -->
+          <div data-hf-id="hf-csdc" id="s4-row-1" class="s4-row">
+            <span data-hf-id="hf-cg2p" class="s4-cmd">git push --force origin main</span>
+            <span data-hf-id="hf-2pbc" class="s4-score">85 / 100</span>
+            <div data-hf-id="hf-9zmq" class="s4-factor-bars">
+              <span data-hf-id="hf-3208" class="s4-pill s4-pill--red">destructive 20</span>
+              <span data-hf-id="hf-htnx" class="s4-pill s4-pill--blue">irreversible 20</span>
+            </div>
+            <span data-hf-id="hf-tub7" class="s4-pill s4-pill--red">default:balanced</span>
+            <span data-hf-id="hf-8wt9" class="s4-action-btn s4-action-btn--active">BLOCK · Rule matched</span>
+          </div>
+
+          <!-- Row 2 -->
+          <div data-hf-id="hf-lg97" id="s4-row-2" class="s4-row">
+            <span data-hf-id="hf-a0z4" class="s4-cmd">rm -rf ./backups/prod-2026.sql</span>
+            <span data-hf-id="hf-2ybo" class="s4-score">92 / 100</span>
+            <div data-hf-id="hf-skue" class="s4-factor-bars">
+              <span data-hf-id="hf-12h3" class="s4-pill s4-pill--red">destructive 25</span>
+              <span data-hf-id="hf-m6h6" class="s4-pill s4-pill--red">production 10</span>
+            </div>
+            <span data-hf-id="hf-l5ou" class="s4-pill s4-pill--red">.kapibara/rules.md</span>
+            <span data-hf-id="hf-7weu" class="s4-action-btn s4-action-btn--active">BLOCK · Protected path</span>
+          </div>
+
+          <!-- Row 3 -->
+          <div data-hf-id="hf-hi56" id="s4-row-3" class="s4-row">
+            <span data-hf-id="hf-ppbk" class="s4-cmd">POST webhook (Bearer sk_live_51H…)</span>
+            <span data-hf-id="hf-x1qf" class="s4-score">88 / 100</span>
+            <div data-hf-id="hf-sz5f" class="s4-factor-bars">
+              <span data-hf-id="hf-x4ko" class="s4-pill s4-pill--red">sensitive 20</span>
+              <span data-hf-id="hf-ecih" class="s4-pill s4-pill--amber">external 15</span>
+            </div>
+            <span data-hf-id="hf-qhbs" class="s4-pill s4-pill--red">scan_sensitive</span>
+            <span data-hf-id="hf-zbvl" class="s4-action-btn s4-action-btn--active">BLOCK · Secret redacted</span>
+          </div>
+
+          <!-- Row 4 -->
+          <div data-hf-id="hf-yqfh" id="s4-row-4" class="s4-row">
+            <span data-hf-id="hf-g40l" class="s4-cmd">kubectl apply -f k8s/prod-us-east</span>
+            <span data-hf-id="hf-ex4p" class="s4-score">68 / 100</span>
+            <div data-hf-id="hf-tdgg" class="s4-factor-bars">
+              <span data-hf-id="hf-u83u" class="s4-pill s4-pill--amber">production 10</span>
+              <span data-hf-id="hf-9tl8" class="s4-pill s4-pill--blue">external 15</span>
+            </div>
+            <span data-hf-id="hf-1yb7" class="s4-pill s4-pill--amber">default:balanced</span>
+            <span data-hf-id="hf-2fln" class="s4-action-btn">REQUIRE_APPROVAL</span>
+          </div>
+
+          <!-- Row 5 -->
+          <div data-hf-id="hf-xyro" id="s4-row-5" class="s4-row">
+            <span data-hf-id="hf-kvt0" class="s4-cmd">compare invoice.json vs email.txt</span>
+            <span data-hf-id="hf-8riu" class="s4-score">3 issues</span>
+            <div data-hf-id="hf-qlb9" class="s4-factor-bars">
+              <span data-hf-id="hf-yigh" class="s4-pill s4-pill--amber">$1,200 ≠ $1,500</span>
+              <span data-hf-id="hf-jzoo" class="s4-pill s4-pill--blue">v2.1 ≠ v2.2</span>
+            </div>
+            <span data-hf-id="hf-nolp" class="s4-pill s4-pill--amber">kapibara_compare</span>
+            <span data-hf-id="hf-lqta" class="s4-action-btn">CONFLICT · Hold action</span>
+          </div>
+
+          <!-- Row 6 -->
+          <div data-hf-id="hf-8u9b" id="s4-row-6" class="s4-row">
+            <span data-hf-id="hf-poam" class="s4-cmd">rm -rf dist/ build/ .turbo/</span>
+            <span data-hf-id="hf-e2xu" class="s4-score">10 / 100</span>
+            <div data-hf-id="hf-qzma" class="s4-factor-bars">
+              <span data-hf-id="hf-f64z" class="s4-pill s4-pill--green">workspace 0</span>
+              <span data-hf-id="hf-1omq" class="s4-pill s4-pill--green">reversible 5</span>
+            </div>
+            <span data-hf-id="hf-moyf" class="s4-pill s4-pill--green">profile:developer</span>
+            <span data-hf-id="hf-fly4" class="s4-action-btn s4-action-btn--active">ALLOW · Safe artifact</span>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-t7ej" class="s4-stand" data-layout-ignore></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Monitor entrance
+    tl.fromTo(
+      "#s4-camera",
+      { scale: 0.92, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.38, ease: "power3.out" },
+      0,
+    );
+
+    // Rows cascade in (0.3s -> 1.8s)
+    const rows = ["#s4-row-1", "#s4-row-2", "#s4-row-3", "#s4-row-4", "#s4-row-5", "#s4-row-6"];
+    rows.forEach((sel, idx) => {
+      tl.fromTo(
+        sel,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" },
+        0.32 + idx * 0.16,
+      );
+    });
+
+    // Camera pushes in toward the right-hand factor pills & decisions (matching reference frames 17s-19s)
+    tl.to(
+      "#s4-camera",
+      {
+        scale: 1.34,
+        x: -140,
+        y: 35,
+        rotation: -0.8,
+        duration: 2.6,
+        ease: "power2.inOut",
+      },
+      2.3,
+    );
+
+    window.__timelines["scene4"] = tl;
+  </script>
+</template>

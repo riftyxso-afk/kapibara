@@ -1,0 +1,15 @@
+{
+  "name": "kapibara",
+  "owner": {
+    "name": "Kapibara contributors"
+  },
+  "description": "Local-first preflight safety checks for AI agents: five MCP tools, six skills, and no account or cloud dependency.",
+  "plugins": [
+    {
+      "name": "kapibara",
+      "source": "./",
+      "description": "Local-first preflight safety checks for AI agents, with five MCP tools and six skills.",
+      "version": "0.1.0"
+    }
+  ]
+}

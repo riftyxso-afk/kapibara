@@ -1,0 +1,10 @@
+{
+  "name": "kapibara",
+  "description": "Local-first preflight safety checks for AI agents. Returns ALLOW, WARN, REQUIRE_APPROVAL, or BLOCK before an action runs.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Kapibara contributors"
+  },
+  "license": "MIT",
+  "keywords": ["ai-agents", "mcp", "safety", "preflight", "security", "secrets", "policy"]
+}

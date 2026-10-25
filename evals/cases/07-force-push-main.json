@@ -1,0 +1,20 @@
+{
+  "name": "force push to main",
+  "description": "Rewriting protected branch history is always blocked.",
+  "input": {
+    "action": "force push",
+    "target": "origin/main",
+    "context": {
+      "metadata": {
+        "branch": "main"
+      }
+    }
+  },
+  "expect": {
+    "decision": "block",
+    "action": "git_force_push",
+    "risk": "critical",
+    "issues": ["protected_branch_force_push"],
+    "matchedRules": ["never-force-push-to-main"]
+  }
+}

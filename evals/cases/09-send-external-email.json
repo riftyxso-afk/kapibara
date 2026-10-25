@@ -1,0 +1,18 @@
+{
+  "name": "send an external email",
+  "description": "Outbound communication requires approval under the balanced profile.",
+  "input": {
+    "action": "send email",
+    "target": "customer list",
+    "context": {
+      "external": true
+    }
+  },
+  "expect": {
+    "decision": "require_approval",
+    "action": "send_email",
+    "risk": "high",
+    "issues": ["external_communication"],
+    "matchedRules": ["ask-before-sending-emails"]
+  }
+}

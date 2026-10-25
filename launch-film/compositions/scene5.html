@@ -1,0 +1,335 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "GeistMono";
+      src: url("assets/fonts/GeistMono-Latin.woff2") format("woff2");
+      font-weight: 400 600;
+      font-style: normal;
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "ABCDiatype", sans-serif;
+      background: #c55331;
+    }
+
+    .s5-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 82% 24%, rgba(255, 224, 206, 0.35), transparent 48%),
+        linear-gradient(135deg, #b84524 0%, #ca5533 52%, #d86440 100%);
+    }
+
+    /* Beat 1: "Agents   act   safely" (matching reference frame 20s) */
+    .s5-words-row {
+      position: absolute;
+      top: 495px;
+      left: 740px;
+      display: flex;
+      align-items: center;
+      gap: 92px;
+      font-size: 62px;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+    }
+
+    .s5-word {
+      opacity: 0;
+    }
+
+    /* Beat 2: White Squircle Card (matching reference frames 21s-23s) */
+    .s5-card-wrap {
+      position: relative;
+      width: 720px;
+      background: #ffffff;
+      border-radius: 34px;
+      box-shadow:
+        0 28px 80px rgba(64, 16, 4, 0.28),
+        0 0 0 6px rgba(255, 255, 255, 0.22);
+      padding: 36px 40px;
+      opacity: 0;
+    }
+
+    .s5-card-eyebrow {
+      font-size: 18px;
+      color: #8c867e;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .s5-tool-row {
+      position: relative;
+      padding: 15px 0 17px;
+      border-bottom: 3px solid #95f176;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+    }
+
+    .s5-tool-name {
+      font-size: 24px;
+      font-weight: 500;
+      color: #161512;
+      font-family: "GeistMono", monospace;
+    }
+
+    .s5-tool-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .s5-tool-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1.5px solid #e4e1dc;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      font-size: 17px;
+      font-weight: 500;
+      color: #161512;
+    }
+
+    .s5-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #e53d00;
+    }
+
+    .s5-rank {
+      font-size: 19px;
+      font-weight: 600;
+      color: #e53d00;
+    }
+
+    .s5-card-footer {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .s5-card-footer h3 {
+      font-size: 28px;
+      font-weight: 500;
+      color: #161512;
+    }
+
+    .s5-card-footer p {
+      font-size: 17px;
+      color: #8c867e;
+    }
+
+    /* Animated Capybara mascot perched on top right of the squircle card */
+    .s5-capy-perch {
+      position: absolute;
+      top: -92px;
+      right: 36px;
+      width: 124px;
+      height: 124px;
+    }
+
+    /* Beat 3: Full-frame white statement on terracotta (matching reference frame 24s) */
+    .s5-payoff-line {
+      position: absolute;
+      font-size: 68px;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      text-align: center;
+      opacity: 0;
+    }
+  </style>
+
+  <div data-hf-id="hf-vmm4" id="root" data-composition-id="scene5" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-5gc9" id="s5-stage" class="clip s5-stage" data-start="0" data-duration="5">
+      <!-- Beat 1: Spaced kinetic words -->
+      <div data-hf-id="hf-jnz5" id="s5-words" class="s5-words-row" data-layout-allow-overlap>
+        <span data-hf-id="hf-dbqn" id="s5-w1" class="s5-word">Agents</span>
+        <span data-hf-id="hf-dhnm" id="s5-w2" class="s5-word">act</span>
+        <span data-hf-id="hf-zmp5" id="s5-w3" class="s5-word">safely</span>
+      </div>
+
+      <!-- Beat 2: Centered White Squircle Card -->
+      <div data-hf-id="hf-eqqf" id="s5-card" class="s5-card-wrap" data-layout-allow-overlap>
+        <!-- Capybara perched on card -->
+        <div data-hf-id="hf-lw30" id="s5-capy" class="s5-capy-perch" data-layout-allow-overflow>
+          <svg data-hf-id="hf-zg8a" viewBox="0 0 200 200" width="124" height="124" fill="none">
+            <g data-hf-id="hf-dae4" id="s5-capy-head">
+              <ellipse data-hf-id="hf-qa7b" cx="52" cy="54" rx="19" ry="23" fill="#f7e3d4" />
+              <ellipse data-hf-id="hf-smd7" cx="146" cy="52" rx="19" ry="23" fill="#f7e3d4" />
+              <path data-hf-id="hf-psjb"
+                d="M34 118C34 70 62 44 102 44C142 44 168 70 168 118C168 152 144 172 102 172C60 172 34 152 34 118Z"
+                fill="#fcf0e6"
+              />
+              <ellipse data-hf-id="hf-0rs6" cx="76" cy="94" rx="8.5" ry="14" fill="#181210" />
+              <ellipse data-hf-id="hf-smqv" cx="134" cy="92" rx="8.5" ry="14" fill="#181210" />
+              <rect data-hf-id="hf-wai8" x="82" y="96" width="66" height="62" rx="30" fill="#d9a585" />
+              <path data-hf-id="hf-nvhn"
+                d="M104 115L116 123L128 114M116 123V146"
+                stroke="#30180d"
+                stroke-width="6.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </svg>
+        </div>
+
+        <div data-hf-id="hf-res9" class="s5-card-eyebrow">
+          <span data-hf-id="hf-hokh">Kapibara MCP verification suite</span>
+          <span data-hf-id="hf-xnqc">stdio · readOnlyHint: true</span>
+        </div>
+
+        <div data-hf-id="hf-pomg" id="s5-r1" class="s5-tool-row">
+          <span data-hf-id="hf-9uhz" class="s5-tool-name">kapibara_preflight</span>
+          <div data-hf-id="hf-gmlq" class="s5-tool-right">
+            <span data-hf-id="hf-f0tr" class="s5-tool-pill"><span data-hf-id="hf-yrnf" class="s5-dot"></span>Blocking force-push</span>
+            <span data-hf-id="hf-e36s" class="s5-rank">#1</span>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-ycib" id="s5-r2" class="s5-tool-row">
+          <span data-hf-id="hf-go1c" class="s5-tool-name">kapibara_action_risk</span>
+          <div data-hf-id="hf-9njm" class="s5-tool-right">
+            <span data-hf-id="hf-rsfu" class="s5-tool-pill"><span data-hf-id="hf-w7jv" class="s5-dot"></span>Scoring 6 risk factors</span>
+            <span data-hf-id="hf-gbx8" class="s5-rank">#1</span>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-ueea" id="s5-r3" class="s5-tool-row">
+          <span data-hf-id="hf-x05b" class="s5-tool-name">kapibara_compare</span>
+          <div data-hf-id="hf-a1un" class="s5-tool-right">
+            <span data-hf-id="hf-6zaa" class="s5-tool-pill"><span data-hf-id="hf-vt8u" class="s5-dot"></span>Catching $1.2k ≠ $1.5k</span>
+            <span data-hf-id="hf-f505" class="s5-rank">#1</span>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-bmol" id="s5-r4" class="s5-tool-row">
+          <span data-hf-id="hf-reuu" class="s5-tool-name">kapibara_scan_sensitive</span>
+          <div data-hf-id="hf-ag5o" class="s5-tool-right">
+            <span data-hf-id="hf-xzzb" class="s5-tool-pill"><span data-hf-id="hf-vext" class="s5-dot"></span>Redacting sk_live_****</span>
+            <span data-hf-id="hf-fjb6" class="s5-rank">#1</span>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-av0s" id="s5-r5" class="s5-tool-row">
+          <span data-hf-id="hf-iky8" class="s5-tool-name">kapibara_rules_check</span>
+          <div data-hf-id="hf-augp" class="s5-tool-right">
+            <span data-hf-id="hf-fxlf" class="s5-tool-pill"><span data-hf-id="hf-v0ms" class="s5-dot"></span>Enforcing .kapibara/rules.md</span>
+            <span data-hf-id="hf-hiub" class="s5-rank">#1</span>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-qtg1" class="s5-card-footer">
+          <div data-hf-id="hf-yeow">
+            <h3 data-hf-id="hf-6vo8">Verified #1</h3>
+            <p data-hf-id="hf-awy7">across all five MCP tools &amp; six agent skills</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beat 3: Full-frame statement -->
+      <div data-hf-id="hf-l5kr" id="s5-payoff" class="s5-payoff-line" data-layout-allow-overlap>
+        Protected across 179 tests &amp; 15 eval scenarios
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Beat 1: "Agents   act   safely" (0.05s -> 1.05s)
+    tl.fromTo(
+      "#s5-w1",
+      { opacity: 0, filter: "blur(8px)", y: 10 },
+      { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.2, ease: "power3.out" },
+      0.06,
+    );
+    tl.fromTo(
+      "#s5-w2",
+      { opacity: 0, filter: "blur(8px)", y: 10 },
+      { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.2, ease: "power3.out" },
+      0.22,
+    );
+    tl.fromTo(
+      "#s5-w3",
+      { opacity: 0, filter: "blur(8px)", y: 10 },
+      { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.2, ease: "power3.out" },
+      0.38,
+    );
+    tl.to(
+      "#s5-words",
+      { opacity: 0, filter: "blur(8px)", scale: 0.94, duration: 0.2, ease: "power2.in" },
+      0.98,
+    );
+
+    // Beat 2: White squircle card pops in (1.1s -> 3.65s)
+    tl.fromTo(
+      "#s5-card",
+      { opacity: 0, scale: 0.86, y: 30 },
+      { opacity: 1, scale: 1, y: 0, duration: 0.36, ease: "back.out(1.5)" },
+      1.1,
+    );
+
+    const toolRows = ["#s5-r1", "#s5-r2", "#s5-r3", "#s5-r4", "#s5-r5"];
+    toolRows.forEach((sel, idx) => {
+      tl.fromTo(
+        sel,
+        { opacity: 0, x: -24 },
+        { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" },
+        1.25 + idx * 0.16,
+      );
+    });
+
+    // Smooth Capybara bobbing & head tilt on top of the card
+    tl.fromTo(
+      "#s5-capy-head",
+      { y: 16, rotation: -6, transformOrigin: "100px 140px" },
+      { y: 0, rotation: 6, duration: 0.38, yoyo: true, repeat: 4, ease: "sine.inOut" },
+      1.2,
+    );
+
+    tl.to(
+      "#s5-card",
+      { opacity: 0, scale: 0.92, filter: "blur(8px)", duration: 0.22, ease: "power2.in" },
+      3.62,
+    );
+
+    // Beat 3: Full-frame statement (3.78s -> 4.95s)
+    tl.fromTo(
+      "#s5-payoff",
+      { opacity: 0, scale: 0.94, filter: "blur(10px)" },
+      { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.28, ease: "power3.out" },
+      3.78,
+    );
+
+    window.__timelines["scene5"] = tl;
+  </script>
+</template>

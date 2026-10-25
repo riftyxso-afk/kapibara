@@ -1,0 +1,15 @@
+{
+  "name": "deploy to staging with an explicit request",
+  "description": "A staging deployment is a warning, not an approval gate.",
+  "input": {
+    "action": "deploy",
+    "target": "staging",
+    "intent": "The user explicitly asked me to deploy this branch to staging."
+  },
+  "expect": {
+    "decision": "warn",
+    "action": "deploy",
+    "risk": "medium",
+    "issues": ["deployment"]
+  }
+}

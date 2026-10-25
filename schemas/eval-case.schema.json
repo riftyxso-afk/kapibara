@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kapibara.dev/schemas/eval-case.schema.json",
+  "title": "Kapibara eval case",
+  "description": "One end-to-end decision eval in evals/cases/.",
+  "type": "object",
+  "required": ["name", "input", "expect"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "input": {
+      "type": "object",
+      "required": ["action"],
+      "properties": {
+        "intent": { "type": "string" },
+        "action": { "type": "string", "minLength": 1 },
+        "target": { "type": "string" },
+        "context": { "type": "object", "additionalProperties": true }
+      },
+      "additionalProperties": true
+    },
+    "expect": {
+      "type": "object",
+      "required": ["decision"],
+      "properties": {
+        "decision": {
+          "type": "string",
+          "enum": ["allow", "warn", "require_approval", "block"]
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "read_file",
+            "modify_local_file",
+            "delete_file",
+            "recursive_delete",
+            "overwrite_file",
+            "commit",
+            "git_push",
+            "git_force_push",
+            "deploy",
+            "deploy_production",
+            "publish",
+            "upload",
+            "share",
+            "send_email",
+            "drop_database",
+            "truncate_database",
+            "database_migration",
+            "purchase",
+            "permission_change",
+            "execute_shell",
+            "unknown"
+          ]
+        },
+        "risk": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "issues": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Required issue types. An empty array asserts no issues."
+        },
+        "matchedRules": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Required rule IDs. An empty array asserts no matches."
+        },
+        "forbiddenText": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Strings that must not appear in the serialized result."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

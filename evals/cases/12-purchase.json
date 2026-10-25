@@ -1,0 +1,17 @@
+{
+  "name": "make a financial purchase",
+  "description": "A financial transaction requires approval.",
+  "input": {
+    "action": "purchase",
+    "target": "server plan",
+    "context": {
+      "financialImpact": 1200
+    }
+  },
+  "expect": {
+    "decision": "require_approval",
+    "action": "purchase",
+    "risk": "high",
+    "issues": ["financial_transaction"]
+  }
+}

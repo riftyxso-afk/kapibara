@@ -1,0 +1,15 @@
+{
+  "name": "push to a protected branch",
+  "description": "Pushing directly to main requires approval.",
+  "input": {
+    "action": "git push",
+    "target": "origin/main"
+  },
+  "expect": {
+    "decision": "require_approval",
+    "action": "git_push",
+    "risk": "high",
+    "issues": ["protected_branch_push"],
+    "matchedRules": []
+  }
+}

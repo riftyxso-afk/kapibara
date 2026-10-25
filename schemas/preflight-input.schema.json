@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kapibara.dev/schemas/preflight-input.schema.json",
+  "title": "Kapibara preflight input",
+  "description": "Input accepted by kapibara_preflight and the core preflight function. Additional fields are allowed.",
+  "type": "object",
+  "required": ["action"],
+  "properties": {
+    "intent": {
+      "type": "string",
+      "maxLength": 20000,
+      "description": "The user's intent. Used for rule matching."
+    },
+    "action": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "description": "Concrete action verb, such as deploy, delete file, or send email."
+    },
+    "target": {
+      "type": "string",
+      "maxLength": 4000,
+      "description": "Exact path, branch, environment, recipient, package, or resource."
+    },
+    "context": {
+      "type": "object",
+      "description": "Facts the engine cannot infer from the action and target.",
+      "properties": {
+        "environment": { "type": "string", "maxLength": 200 },
+        "reversible": { "type": "boolean" },
+        "production": { "type": "boolean" },
+        "external": { "type": "boolean" },
+        "financialImpact": { "type": "number", "minimum": 0 },
+        "scope": { "type": "string", "maxLength": 500 },
+        "metadata": {
+          "type": "object",
+          "description": "Extra fields. command, content, branch, files, migration, environment, and recursive are used.",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "files": {
+      "type": "array",
+      "maxItems": 100,
+      "description": "Explicit workspace-relative files to scan. Directories are never crawled.",
+      "items": { "type": "string", "minLength": 1, "maxLength": 4000 }
+    },
+    "scanTarget": {
+      "type": "boolean",
+      "default": true,
+      "description": "Scan the single named target for outbound actions. The target must stay inside the workspace."
+    }
+  },
+  "additionalProperties": true
+}

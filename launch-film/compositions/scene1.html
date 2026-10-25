@@ -1,0 +1,414 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "ABCDiatype";
+      src: url("assets/fonts/ABCDiatype-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "GeistMono";
+      src: url("assets/fonts/GeistMono-Latin.woff2") format("woff2");
+      font-weight: 400 600;
+      font-style: normal;
+    }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "ABCDiatype", sans-serif;
+      background: #230906;
+    }
+
+    .s1-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Soft blurred mesh blobs matching reference frames 0s-4s */
+    .s1-mesh {
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 50% 8%, #ffffff 0%, rgba(255, 255, 255, 0.85) 18%, transparent 52%),
+        radial-gradient(circle at 22% 62%, #d85a32 0%, rgba(216, 90, 50, 0.78) 34%, transparent 66%),
+        radial-gradient(circle at 78% 68%, #261412 0%, rgba(38, 20, 18, 0.92) 38%, transparent 70%),
+        radial-gradient(circle at 48% 85%, #c94c24 0%, #3a0704 75%);
+    }
+
+    /* Pixelated dither reveal overlay (reference frame 4s) */
+    .s1-dither-layer {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background-color: #c9522e;
+      background-image:
+        radial-gradient(#f7d9cb 1.75px, transparent 1.75px),
+        radial-gradient(#7c220c 1.75px, #c9522e 1.75px);
+      background-size: 14px 14px;
+      background-position:
+        0 0,
+        7px 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s1-dither-word {
+      position: absolute;
+      font-size: 320px;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      color: rgba(255, 232, 220, 0.24);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* Center registration frame with 4 corner brackets/dots */
+    .s1-bracket-box {
+      position: relative;
+      z-index: 5;
+      width: 780px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s1-corner {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .s1-corner::before,
+    .s1-corner::after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: #141210;
+    }
+    .s1-corner--tl {
+      top: 0;
+      left: 0;
+    }
+    .s1-corner--tr {
+      top: 0;
+      right: 0;
+    }
+    .s1-corner--bl {
+      bottom: 0;
+      left: 0;
+    }
+    .s1-corner--br {
+      bottom: 0;
+      right: 0;
+    }
+
+    .s1-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      font-size: 46px;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    .s1-slot-viewport {
+      position: relative;
+      width: 320px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s1-agent-pill {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      opacity: 0;
+    }
+
+    .s1-agent-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .s1-agent-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .s1-agent-name {
+      font-weight: 500;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    /* Smooth Articulated Capybara Character Rig peeking above the bracket */
+    .s1-capy-wrap {
+      position: absolute;
+      top: 228px;
+      left: 870px;
+      width: 180px;
+      height: 180px;
+      z-index: 6;
+      opacity: 0;
+    }
+  </style>
+
+  <div data-hf-id="hf-5m5k" id="root" data-composition-id="scene1" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ky0r" id="s1-stage" class="clip s1-stage" data-start="0" data-duration="4.5">
+      <div data-hf-id="hf-1k1h" id="s1-mesh" class="s1-mesh" data-layout-allow-overflow></div>
+
+      <div data-hf-id="hf-pugj" id="s1-dither" class="s1-dither-layer" data-layout-allow-overflow>
+        <div data-hf-id="hf-50l8" id="s1-dither-word" class="s1-dither-word" data-layout-allow-overflow>Kapibara</div>
+      </div>
+
+      <!-- Smooth Animated Capybara Mascot Rig -->
+      <div data-hf-id="hf-l249" id="s1-capy" class="s1-capy-wrap" data-layout-allow-overlap>
+        <svg data-hf-id="hf-y8ye" viewBox="0 0 200 200" width="180" height="180" fill="none">
+          <!-- Warm glow behind mascot -->
+          <circle data-hf-id="hf-dkhv" cx="100" cy="108" r="72" fill="#e53d00" fill-opacity="0.28" />
+          <g data-hf-id="hf-u4ra" id="s1-capy-body">
+            <!-- Left Ear -->
+            <g data-hf-id="hf-3esd" id="s1-capy-ear-l">
+              <ellipse data-hf-id="hf-178o" cx="52" cy="54" rx="20" ry="24" fill="#f7e3d4" />
+              <ellipse data-hf-id="hf-tsgq" cx="53" cy="56" rx="11" ry="14" fill="#6b341e" />
+            </g>
+            <!-- Right Ear -->
+            <g data-hf-id="hf-2n0j" id="s1-capy-ear-r">
+              <ellipse data-hf-id="hf-smd7" cx="146" cy="52" rx="19" ry="23" fill="#f7e3d4" />
+              <ellipse data-hf-id="hf-xv3q" cx="145" cy="54" rx="10" ry="13" fill="#6b341e" />
+            </g>
+            <!-- Main Head -->
+            <path data-hf-id="hf-psjb"
+              d="M34 118C34 70 62 44 102 44C142 44 168 70 168 118C168 152 144 172 102 172C60 172 34 152 34 118Z"
+              fill="#fcf0e6"
+            />
+            <!-- Eyes -->
+            <ellipse data-hf-id="hf-d7yc" id="s1-capy-eye-l" cx="76" cy="94" rx="9" ry="15" fill="#181210" />
+            <ellipse data-hf-id="hf-fq5a" id="s1-capy-eye-r" cx="134" cy="92" rx="8.5" ry="14" fill="#181210" />
+            <!-- Snout Muzzle -->
+            <g data-hf-id="hf-wux3" id="s1-capy-snout">
+              <rect data-hf-id="hf-wai8" x="82" y="96" width="66" height="62" rx="30" fill="#d9a585" />
+              <!-- Signature Y Nose Mark -->
+              <path data-hf-id="hf-nvhn"
+                d="M104 115L116 123L128 114M116 123V146"
+                stroke="#30180d"
+                stroke-width="6.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Center Registration Bracket Box -->
+      <div data-hf-id="hf-id62" id="s1-bracket" class="s1-bracket-box" data-layout-allow-overlap>
+        <div data-hf-id="hf-zi06" class="s1-corner s1-corner--tl"></div>
+        <div data-hf-id="hf-ytts" class="s1-corner s1-corner--tr"></div>
+        <div data-hf-id="hf-1c9w" class="s1-corner s1-corner--bl"></div>
+        <div data-hf-id="hf-tg1u" class="s1-corner s1-corner--br"></div>
+
+        <div data-hf-id="hf-71uz" class="s1-line" data-layout-allow-overlap>
+          <span data-hf-id="hf-d9g7" id="s1-prefix">Introducing</span>
+
+          <div data-hf-id="hf-hh9m" class="s1-slot-viewport" data-layout-allow-overlap>
+            <!-- 1: Claude -->
+            <div data-hf-id="hf-16jo" id="s1-agent-1" class="s1-agent-pill">
+              <span data-hf-id="hf-n839" class="s1-agent-icon">
+                <svg data-hf-id="hf-d52u" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path data-hf-id="hf-u6pq"
+                    d="M12 2.5v19M4.4 6.2l15.2 11.6M19.6 6.2 4.4 17.8M2.6 12h18.8M8 3.3l8 17.4M16 3.3 8 20.7"
+                    stroke="#d97757"
+                    stroke-width="2.3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              <span data-hf-id="hf-vd1t" class="s1-agent-name">Claude</span>
+            </div>
+
+            <!-- 2: Grok / Cursor -->
+            <div data-hf-id="hf-c21b" id="s1-agent-2" class="s1-agent-pill">
+              <span data-hf-id="hf-mfah" class="s1-agent-icon">
+                <svg data-hf-id="hf-97x6" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <circle data-hf-id="hf-qm1u" cx="12" cy="12" r="8.5" stroke="#161512" stroke-width="2.5" />
+                  <path data-hf-id="hf-yuce" d="M8 16L16 8" stroke="#161512" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span data-hf-id="hf-plc1" class="s1-agent-name">Cursor</span>
+            </div>
+
+            <!-- 3: Codex -->
+            <div data-hf-id="hf-83xa" id="s1-agent-3" class="s1-agent-pill">
+              <span data-hf-id="hf-nm7k" class="s1-agent-icon">
+                <svg data-hf-id="hf-9m87" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <circle data-hf-id="hf-a1xx" cx="12" cy="12" r="8.5" stroke="#161512" stroke-width="2.2" />
+                  <path data-hf-id="hf-dowm"
+                    d="M12 6.8v10.4M7.5 9.4l9 5.2M16.5 9.4l-9 5.2"
+                    stroke="#161512"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              <span data-hf-id="hf-p93a" class="s1-agent-name">Codex</span>
+            </div>
+
+            <!-- 4: Kapibara (with real 3D Capybara icon!) -->
+            <div data-hf-id="hf-grt5" id="s1-agent-4" class="s1-agent-pill">
+              <span data-hf-id="hf-n7wj" class="s1-agent-icon">
+                <img data-hf-id="hf-pf7f" src="assets/logo.png" alt="Kapibara" />
+              </span>
+              <span data-hf-id="hf-ad44" class="s1-agent-name">Kapibara</span>
+            </div>
+          </div>
+
+          <span data-hf-id="hf-gzif" id="s1-suffix">for Safety</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Bracket box subtle scale-in
+    tl.fromTo(
+      "#s1-bracket",
+      { scale: 0.92, opacity: 0, filter: "blur(10px)" },
+      { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.32, ease: "power4.out" },
+      0.05,
+    );
+
+    // Background mesh color shift across beats
+    tl.fromTo(
+      "#s1-mesh",
+      { scale: 1, rotation: 0 },
+      { scale: 1.12, rotation: -4, duration: 4.4, ease: "sine.inOut" },
+      0,
+    );
+
+    // Slot 1: Claude (0.08s -> 0.95s)
+    tl.fromTo(
+      "#s1-agent-1",
+      { y: 24, opacity: 0, filter: "blur(6px)" },
+      { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" },
+      0.08,
+    );
+    tl.to(
+      "#s1-agent-1",
+      { y: -26, opacity: 0, filter: "blur(6px)", duration: 0.14, ease: "power3.in" },
+      0.85,
+    );
+
+    // Slot 2: Cursor (0.90s -> 1.75s)
+    tl.fromTo(
+      "#s1-agent-2",
+      { y: 26, opacity: 0, filter: "blur(6px)" },
+      { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power4.out" },
+      0.9,
+    );
+    tl.to(
+      "#s1-agent-2",
+      { y: -26, opacity: 0, filter: "blur(6px)", duration: 0.14, ease: "power3.in" },
+      1.68,
+    );
+
+    // Slot 3: Codex (1.72s -> 2.60s)
+    tl.fromTo(
+      "#s1-agent-3",
+      { y: 26, opacity: 0, filter: "blur(6px)" },
+      { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power4.out" },
+      1.72,
+    );
+    tl.to(
+      "#s1-agent-3",
+      { y: -26, opacity: 0, filter: "blur(6px)", duration: 0.14, ease: "power3.in" },
+      2.52,
+    );
+
+    // Slot 4: Kapibara lands (2.56s -> 4.45s)
+    tl.fromTo(
+      "#s1-agent-4",
+      { y: 28, scale: 0.88, opacity: 0, filter: "blur(8px)" },
+      { y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.22, ease: "back.out(1.6)" },
+      2.56,
+    );
+
+    // Smooth Capybara Character Rig pops up above bracket at 2.62s with squash & stretch + ear wiggle + blink
+    tl.fromTo(
+      "#s1-capy",
+      { y: 48, scaleX: 1.18, scaleY: 0.78, opacity: 0 },
+      { y: 0, scaleX: 1, scaleY: 1, opacity: 1, duration: 0.36, ease: "back.out(1.8)" },
+      2.62,
+    );
+    tl.fromTo(
+      "#s1-capy-ear-l",
+      { rotation: -18, transformOrigin: "60px 68px" },
+      { rotation: 8, duration: 0.22, yoyo: true, repeat: 3, ease: "sine.inOut" },
+      2.75,
+    );
+    tl.fromTo(
+      "#s1-capy-ear-r",
+      { rotation: 16, transformOrigin: "140px 68px" },
+      { rotation: -10, duration: 0.24, yoyo: true, repeat: 3, ease: "sine.inOut" },
+      2.8,
+    );
+    tl.fromTo(
+      "#s1-capy-eye-l, #s1-capy-eye-r",
+      { scaleY: 1, transformOrigin: "center center" },
+      { scaleY: 0.12, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.inOut" },
+      3.15,
+    );
+
+    // Pixelated dither reveal at 3.25s matching reference video frame 4
+    tl.fromTo(
+      "#s1-dither",
+      { opacity: 0, clipPath: "circle(0% at 50% 50%)" },
+      { opacity: 1, clipPath: "circle(85% at 50% 50%)", duration: 0.48, ease: "power3.inOut" },
+      3.25,
+    );
+    tl.fromTo(
+      "#s1-dither-word",
+      { x: 140, scale: 1.15 },
+      { x: -40, scale: 1, duration: 1.1, ease: "power3.out" },
+      3.25,
+    );
+
+    window.__timelines["scene1"] = tl;
+  </script>
+</template>
