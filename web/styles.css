@@ -2659,7 +2659,9 @@ th {
     z-index: 90;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.24s ease, visibility 0.24s;
+    transition:
+      opacity 0.24s ease,
+      visibility 0.24s;
     display: block;
   }
 
@@ -2685,7 +2687,9 @@ th {
     z-index: 100;
     box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.32);
     transform: translateY(105%);
-    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    transition:
+      transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.2s ease;
     visibility: hidden;
     opacity: 0;
   }
